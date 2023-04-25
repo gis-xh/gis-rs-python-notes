@@ -21,7 +21,7 @@ louang_namtha = ee.FeatureCollection('projects/ee-evolto/assets/louang_namtha')
 louang_namtha_sample = geemap.shp_to_ee("E:/researchData/laos/sample/louang_namtha_sample.shp")
 ```
 
-
+[GEE：样本点选择教程_gee选取样本点__养乐多_的博客-CSDN博客](https://blog.csdn.net/qq_35591253/article/details/129176469)
 
 
 

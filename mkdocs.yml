@@ -1,8 +1,8 @@
 # [Info] 基本信息
-site_name: GEE 个人学习站 # 左上角标题
-site_url: https://gis-xh.github.io/gee-notes
+site_name: GIS&RS 学习站 # 左上角标题
+site_url: https://gis-xh.github.io/gis-rs-python-notes
 site_author: gis-xh
-site_description: GEE 学习笔记
+site_description: GIS 与 RS 开发学习笔记
 
 # [UI] 界面设置
 ## [top]
@@ -33,8 +33,8 @@ theme:
     repo: fontawesome/brands/github
 edit_uri: edit/main/docs # 编辑按钮跳转的链接
 ## [top-right corner]
-repo_url: https://github.com/gis-xh/gee-notes # 右上角点击跳转的链接
-repo_name: gee-notes # 右上角的名字
+repo_url: https://github.com/gis-xh/gis-rs-python-notes # 右上角点击跳转的链接
+repo_name: gis-rs-python-notes # 右上角的名字
 ## [bottom-left corner]
 copyright: Copyright &copy; 2022 gis-xh # 左下角的版权声明
 ## [bottom-right corner]
@@ -46,14 +46,18 @@ extra:
 
 # [Navigtion] 导航栏
 nav:
-  - 珞珈经纬: 
-    - GEE教程 1 获取遥感影像: luojia/gee01.md
-    - GEE教程 2 遥感图像的基本计算: luojia/gee02.md
-    - GEE教程 3 GEE Python API: luojia/gee03.md
-    - GEE教程 4 Geemap 包的介绍: luojia/gee04.md
-    - GEE教程 5 Landsat 时序延时动画: luojia/gee05.md
-    - GEE教程 6 无限制下载 GEE 数据: luojia/gee06.md
-    - 还没用上 ChatGPT？那快试试全网通的 New Bing 吧！: luojia/demo05.md
+  - GEE系列教程: 
+    - 1 获取遥感影像: gee/gee01.md
+    - 2 遥感图像的基本计算: gee/gee02.md
+    - 3 GEE Python API: gee/gee03.md
+    - 4 Geemap 包的介绍: gee/gee04.md
+    - 5 Landsat 时序延时动画: gee/gee05.md
+    - 6 无限制下载 GEE 数据: gee/gee06.md
+    - 7 未完成: gee/gee07.md
+    - 8 未完成: gee/gee08.md
+    - 还没用上 ChatGPT？那快试试全网通的 New Bing 吧！: gee/demo05.md
+  - open-geo教程:
+    - open-geo-zh\index.md
 
 
 # [Extensions] 扩展

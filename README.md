@@ -1,10 +1,8 @@
-# 基于 Python 的 GIS & RS 学习记录
+# GIS & RS 开发学习记录
 
 
 
 ## 1 Google Earth Engine 学习记录
-
-
 
 ### [GEE 官网](https://earthengine.google.com/)
 
@@ -19,7 +17,12 @@
 
 
 
+## 2 开源地理信息教程
 
+- 原创：[GitHub - ceholden/open-geo-tutorial: Tutorial of basic remote sensing and GIS methodologies using open source software (GDAL in Python or R)](https://github.com/ceholden/open-geo-tutorial)
+
+
+- 二创： [GitHub - patrickcgray/open-geo-tutorial: Tutorial of fundamental remote sensing and GIS methodologies using open source software in python](https://github.com/patrickcgray/open-geo-tutorial)
 
 
 
