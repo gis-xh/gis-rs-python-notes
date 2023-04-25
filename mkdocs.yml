@@ -1,0 +1,93 @@
+# [Info] 基本信息
+site_name: GEE 个人学习站 # 左上角标题
+site_url: https://gis-xh.github.io/gee-notes
+site_author: gis-xh
+site_description: GEE 学习笔记
+
+# [UI] 界面设置
+## [top]
+theme:
+  name: material
+  palette: 
+    - scheme: default # 默认日间模式
+      primary: indigo # 上方的
+      accent: orange # 链接等可交互元件的高亮色
+      toggle:
+        icon: material/weather-night # 图标
+        name: 切换至夜间模式 # 鼠标悬浮提示
+    - scheme: slate # 夜间模式
+      primary: indigo
+      accent: orange
+      toggle:
+        icon: material/weather-sunny
+        name: 切换至日间模式
+  features:
+    - navigation.tabs # 使用Tab来进行分类
+    - navigation.top # 返回顶部的按钮 在上滑时出现
+    - navigation.indexes # Tab会有一个index.md 而不是在打开Tab时打开第一篇文章
+    - navigation.expand # 打开Tab时左侧目录全部展开
+    - search.suggest # 搜索输入一些字母时推荐补全整个单词
+    - search.highlight # 搜索出的文章关键词加入高亮
+  language: zh # 一些提示性的文字会变成中文
+  icon:
+    repo: fontawesome/brands/github
+edit_uri: edit/main/docs # 编辑按钮跳转的链接
+## [top-right corner]
+repo_url: https://github.com/gis-xh/gee-notes # 右上角点击跳转的链接
+repo_name: gee-notes # 右上角的名字
+## [bottom-left corner]
+copyright: Copyright &copy; 2022 gis-xh # 左下角的版权声明
+## [bottom-right corner]
+extra:
+  social: # icons
+    - icon: fontawesome/brands/github
+      link: https://github.com/gis-xh
+      name: GitHub | gis-xh # 鼠标悬浮提示
+
+# [Navigtion] 导航栏
+nav:
+  - 珞珈经纬: 
+    - GEE教程 1 获取遥感影像: luojia/gee01.md
+    - GEE教程 2 遥感图像的基本计算: luojia/gee02.md
+    - GEE教程 3 GEE Python API: luojia/gee03.md
+    - GEE教程 4 Geemap 包的介绍: luojia/gee04.md
+    - GEE教程 5 Landsat 时序延时动画: luojia/gee05.md
+    - GEE教程 6 无限制下载 GEE 数据: luojia/gee06.md
+    - 还没用上 ChatGPT？那快试试全网通的 New Bing 吧！: luojia/demo05.md
+
+
+# [Extensions] 扩展
+plugins:
+  - search: # 现在还不支持中文搜索 支持之后可以设置语言
+    # insider已经支持中文的分词搜索了 https://squidfunk.github.io/mkdocs-material/blog/2022/chinese-search-support/
+      lang:
+        - en
+        - ja
+  - tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
+markdown_extensions:
+  - pymdownx.arithmatex: # latex支持
+      generic: true
+  - attr_list # 给图片后面添加{width="300"}设置大小
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true # 固定标题位置为当前位置
+  - pymdownx.highlight: # 代码块高亮
+      # linenums: true # 显示行号
+      # auto_title: true # 显示编程语言名称
+  - pymdownx.superfences # 代码块高亮插件
+  - meta # 支持Markdown文件上方自定义标题标签等
+  - admonition # https://squidfunk.github.io/mkdocs-material/reference/admonitions/#inline-blocks
+  - pymdownx.details # admonition需要
+
+extra_javascript:
+  # latex支持
+  # check https://squidfunk.github.io/mkdocs-material/reference/mathjax/?h=math for more information
+  # notice `curl https://polyfill.io/v3/polyfill.min.js?features=es6 > docs/mkdocs/javascripts/polyfill.min.js && curl https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js > docs/mkdocs/javascripts/tex-mml-chtml.js` not works... because there are other resources that need to load
+  - mkdocs/js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # https://cdn.bytedance.com/?query=mathjax&version=3.2.0
+extra_css:
+  # - mkdocs/css/no-footer.css # 不使用底部的翻页
+  - mkdocs/css/unordered-list-symbols.css # multiplt unordered list symbols
+  - mkdocs/css/img-center.css # 图像居中
