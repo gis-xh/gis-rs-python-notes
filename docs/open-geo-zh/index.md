@@ -9,53 +9,165 @@
 
 
 
-## 环境配置
+## 1 Windows 安装 GDAL
 
-### 1 配置开发环境
+官网：[GISInternals Support Site -GDAL](https://www.gisinternals.com/release.php)
+
+pypi | GDAL 官网：https://pypi.org/project/GDAL/
+
+### 1.1 安装核心组件
+
+首先，我们需要在系统中先安装好 GDAL 的核心组件（安装核心组件会将 GDAL 所需的 C++ 运行环境一并安装好），在官网上找到 `gdal-****-x64-core.msi` 点击即可下载安装包。![image-20230426194142873](./img/image-20230426194142873.png)
+
+<center>图 1-1 GDAL 官网下载</center>
+
+![image-20230426194359134](./img/image-20230426194359134.png)
+
+<center>图 1-2 安装 GDAL 核心组件</center>
+
+### 1.2 配置环境变量
+
+安装完成后，GDAL 默认安装在 `C:\Program Files\GDAL` 目录下，为了方便使用 GDAL，我们需要进行两步环境变量配置操作。
+
+1、首先，将核心组件的位置添加在 PATH 环境变量中
+
+```
+C:\Program Files\GDAL
+```
+
+![image-20230426195929718](./img/image-20230426195929718.png)
+
+<center>图 1-3 添加环境变量</center>
+
+2、然后创建一个新的变量 `GDAL_DATA`，并设置变量值为：
+
+```
+C:\Program Files\GDAL\gdal-data
+```
+
+![image-20230426200113702](./img/image-20230426200113702.png)
+
+<center>图 1-4 配置 GDAL_DATA 变量</center>
+
+
+
+
+
+### 1.3 可能遇到的问题
+
+
+安装 GDAL 库时出现：
+
+```
+error in GDAL setup command: use_2to3 is invalid.
+```
+
+因为：[History - setuptools 58.0.0. documentation (pypa.io)](https://setuptools.pypa.io/en/latest/history.html#v58-0-0)
+
+在 `setuptools 58.0.0` 版本中，移除了对 `use_2to3` 的支持，所以我们需要安装前一个版本
+
+```sh
+pip install setuptools==57.5.0
+pip install setuptools==49.6.0
+```
+
+
+
+```
+error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/ 
+```
+
+参考：
+
+1. [Microsoft Visual C++ 14.0 is required解决方法 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/126669852)
+2. [Microsoft Visual C++ 14.0 is required._哈哈哈，冲冲冲的博客-CSDN博客](https://blog.csdn.net/qzzzxiaosheng/article/details/125119006)
+
+```sh
+conda install libpython m2w64-toolchain -c msys2
+```
+
+
+
+
+
+## 2 配置开发环境
+
+### 2.1 配置虚拟环境
 
 > 创建虚拟环境
 
 ```sh
-conda create -n open_geo python=3.8 -y
+conda create -n open-geo python=3.8 -y
 ```
 
 > 激活环境
 
 ```sh
-conda activate open_geo
+conda activate open-geo
+```
+
+> 安装 mamba 包管理器
+
+```sh
+conda install -c conda-forge mamba -y
 ```
 
 > 为 jupyterlab 配置运行环境
 
 ```sh
-conda install -c conda-forge jupyterlab jupyterlab-language-pack-zh-CN -y
+mamba install -c conda-forge jupyterlab jupyterlab-language-pack-zh-CN -y
 ```
 
 > 如果后续出问题，可以直接移除虚拟环境
 
 ```sh
-conda remove -n open_geo --all
+conda remove -n open-geo --all
 ```
 
-### 2 安装 GDAL 与 rasterio
+### 2.2 安装 GDAL 与 rasterio
+
+
+
 
 rasterio 是一个 python 看栅格图像的包，依赖于 GDAL 库。
 
-```sh
-pip install GDAL==3.2.2 -i https://pypi.org/simple/
-pip install rasterio==1.2.3 -i https://pypi.org/simple/
+```
+numpy==1.20.2
+geopandas==0.9.0
+fiona==1.8.18
+rasterio==1.2.3
+descartes==1.1.0
+scikit-learn==1.0.2
+click==7.1.2
+seaborn==0.12.2
+tensorflow==2.10.0
 ```
 
-### 3 安装机器学习相关库
+
+
+```sh
+pip install -r requirements.txt
+```
+
+
+
+
+
+### 2.3 安装机器学习相关库
 
 ```sh
 pip install geopandas descartes scikit-learn
 ```
 
-#### 4 安装深度学习库
+### 2.4 安装深度学习库
 
 ```sh
 pip install tensorflow
 ```
+
+```
+
+```
+
 
 
