@@ -129,7 +129,7 @@ precipVis = {
   'min': 0,
   'max': 250,
   'palette': ['white', 'blue', 'darkblue', 'red', 'purple']
-};
+}
 Map = geemap.Map()
 Map.centerObject(yangtzeBasin, 5)
 Map.addLayer(yangtzeBasin, {}, '长江流域')
@@ -190,7 +190,7 @@ plt.figure(figsize=(12, 6))
 df['date'] = df['date'].dt.strftime('%Y-%m')
 # 绘制柱状图，使用日期作为x轴，平均降水量作为y轴
 plt.bar(df['date'], df['precip_mean'])
-# 设置x轴的刻度，每隔2年(12个日期)显示一个标签
+# 设置x轴的刻度，每隔1年(12个日期)显示一个标签
 plt.xticks(np.arange(0, len(df), 12))
 # 设置x轴和y轴的标签
 plt.xlabel('Time')
