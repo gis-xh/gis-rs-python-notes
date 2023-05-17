@@ -1,4 +1,4 @@
-# GEE 教程（六）：突破限制! GEE 数据直接下载本地
+# Geemap 教程（三）：突破限制! GEE 数据直接下载本地
 
 
 
@@ -214,3 +214,4 @@ geemap.download_ee_image(
 ![image-20230422125804047](./img/image-20230422125804047.png)
 
 <center>图 3-4 QGIS 打开下载图像<center>
+

@@ -22,21 +22,24 @@ theme:
         icon: material/weather-sunny
         name: 切换至日间模式
   features:
+    - content.code.copy # 代码复制
     - navigation.tabs # 使用Tab来进行分类
     - navigation.top # 返回顶部的按钮 在上滑时出现
+    - navigation.footer # 上一个下一个按钮
     - navigation.indexes # Tab会有一个index.md 而不是在打开Tab时打开第一篇文章
     - navigation.expand # 打开Tab时左侧目录全部展开
     - search.suggest # 搜索输入一些字母时推荐补全整个单词
     - search.highlight # 搜索出的文章关键词加入高亮
+    - search.share # 将搜索结果分享
   language: zh # 一些提示性的文字会变成中文
   icon:
-    repo: fontawesome/brands/github
+    repo: fontawesome/brands/github-alt
 edit_uri: edit/main/docs # 编辑按钮跳转的链接
 ## [top-right corner]
 repo_url: https://github.com/gis-xh/gis-rs-python-notes # 右上角点击跳转的链接
-repo_name: gis-rs-python-notes # 右上角的名字
+repo_name: gis-xh/gis-rs-python-notes # 右上角的名字
 ## [bottom-left corner]
-copyright: Copyright &copy; 2022 gis-xh # 左下角的版权声明
+copyright: Copyright &copy; 2023 gis-xh # 左下角的版权声明
 ## [bottom-right corner]
 extra:
   social: # icons
@@ -50,11 +53,13 @@ nav:
     - 1 获取遥感影像: gee/gee01.md
     - 2 遥感图像的基本计算: gee/gee02.md
     - 3 GEE Python API: gee/gee03.md
-    - 4 Geemap 包的介绍: gee/gee04.md
-    - 5 Landsat 时序延时动画: gee/gee05.md
-    - 6 无限制下载 GEE 数据: gee/gee06.md
-    - 7 长江流域降雨量可视化: gee/gee07.md
-    - 8 未完成: gee/gee08.md
+    - 4 Geemap 包的介绍: gee/geemap01.md
+    - 5 Landsat 时序延时动画: gee/geemap02.md
+    - 6 无限制下载 GEE 数据: gee/geemap03.md
+    - 7 长江流域降雨量可视化: gee/geemap04.md
+    - 8 长江流域水量平衡可视化(未完成): gee/geemap05.md
+    - 9 农作物分类可视化分析: gee/geemap06.md
+    - 10 未完成: gee/gee08.md
     - 还没用上 ChatGPT？那快试试全网通的 New Bing 吧！: gee/demo05.md
   - open-geo教程:
     - open-geo-zh/index.md
@@ -62,12 +67,18 @@ nav:
 
 # [Extensions] 扩展
 plugins:
-  - search: # 现在还不支持中文搜索 支持之后可以设置语言
+  - search:
     # insider已经支持中文的分词搜索了 https://squidfunk.github.io/mkdocs-material/blog/2022/chinese-search-support/
       lang:
         - en
         - ja
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
+  - git-revision-date-localized: # 日期显示
+      # ["date","datetime","iso_date","iso_datetime","timeago","custom"]
+      type: timeago
+      enable_creation_date: true # 创建时间
+  - glightbox # 图像缩放
 markdown_extensions:
   - pymdownx.arithmatex: # latex支持
       generic: true
@@ -86,12 +97,9 @@ markdown_extensions:
 
 extra_javascript:
   # latex支持
-  # check https://squidfunk.github.io/mkdocs-material/reference/mathjax/?h=math for more information
-  # notice `curl https://polyfill.io/v3/polyfill.min.js?features=es6 > docs/mkdocs/javascripts/polyfill.min.js && curl https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js > docs/mkdocs/javascripts/tex-mml-chtml.js` not works... because there are other resources that need to load
   - mkdocs/js/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # https://cdn.bytedance.com/?query=mathjax&version=3.2.0
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 extra_css:
-  # - mkdocs/css/no-footer.css # 不使用底部的翻页
-  - mkdocs/css/unordered-list-symbols.css # multiplt unordered list symbols
+  - mkdocs/css/unordered-list-symbols.css # 多个无序列表符号
   - mkdocs/css/img-center.css # 图像居中

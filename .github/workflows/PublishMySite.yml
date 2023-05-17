@@ -17,10 +17,14 @@ jobs: # 工作流的具体内容
       - uses: actions/setup-python@v4 # 再安装Python3和相关环境
         with:
           python-version: 3.x
-      - uses: actions/cache@v2
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v3
         with:
-            key: ${{ github.ref }}
+            key: mkdocs-material-${{ env.cache_id }}
             path: .cache
+            restore-keys: |
+              mkdocs-material-
       - run: pip install mkdocs-material # 使用pip包管理工具安装mkdocs-material
-      - run: pip install mkdocs-glightbox # 安装图像缩放工具 
+      - run: pip install mkdocs-glightbox # 安装图像缩放工具
+      - run: pip install mkdocs-git-revision-date-localized-plugin # 获取github文档时间
       - run: mkdocs gh-deploy --force # 使用mkdocs-material部署gh-pages分支

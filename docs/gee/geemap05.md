@@ -1,4 +1,4 @@
-# Geemap 教程（七）：长江流域降雨量可视化分析
+# Geemap 教程（五）：长江流域水量平衡可视化分析
 
 
 
@@ -222,3 +222,5 @@ plt.show()
 ## 5 相关参考
 
 [1] Gee-tutorials. Aquatic and Hydrological Applications |River morphology[EB/OL]. https://google-earth-engine.com/Aquatic-and-Hydrological-Applications/River-morphology/. [2023-5-11].
+
+[2] Wu, Q., (2020). geemap: A Python package for interactive mapping with Google Earth Engine. The Journal of Open Source Software, 5(51), 2305. https://doi.org/10.21105/joss.02305
