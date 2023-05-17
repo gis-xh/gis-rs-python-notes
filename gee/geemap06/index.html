@@ -1,0 +1,1339 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GIS 与 RS 开发学习笔记">
+      
+      
+        <meta name="author" content="gis-xh">
+      
+      
+        <link rel="canonical" href="https://gis-xh.github.io/gis-rs-python-notes/gee/geemap06/">
+      
+      
+        <link rel="prev" href="../geemap05/">
+      
+      
+        <link rel="next" href="../demo05/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
+    
+    
+      
+        <title>9 农作物分类可视化分析 - GIS&RS 学习站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../mkdocs/css/unordered-list-symbols.css">
+    
+      <link rel="stylesheet" href="../../mkdocs/css/img-center.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#geemap" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="GIS&amp;RS 学习站" class="md-header__button md-logo" aria-label="GIS&RS 学习站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GIS&RS 学习站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              9 农作物分类可视化分析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/gis-xh/gis-rs-python-notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    gis-xh/gis-rs-python-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../gee01/" class="md-tabs__link md-tabs__link--active">
+        GEE系列教程
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../open-geo-zh/" class="md-tabs__link">
+        open-geo教程
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GIS&amp;RS 学习站" class="md-nav__button md-logo" aria-label="GIS&RS 学习站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    GIS&RS 学习站
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/gis-xh/gis-rs-python-notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    gis-xh/gis-rs-python-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          GEE系列教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          GEE系列教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gee01/" class="md-nav__link">
+        1 获取遥感影像
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gee02/" class="md-nav__link">
+        2 遥感图像的基本计算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gee03/" class="md-nav__link">
+        3 GEE Python API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geemap01/" class="md-nav__link">
+        4 Geemap 包的介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geemap02/" class="md-nav__link">
+        5 Landsat 时序延时动画
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geemap03/" class="md-nav__link">
+        6 无限制下载 GEE 数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geemap04/" class="md-nav__link">
+        7 长江流域降雨量可视化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geemap05/" class="md-nav__link">
+        8 长江流域水量平衡可视化(未完成)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          9 农作物分类可视化分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        9 农作物分类可视化分析
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+    <nav class="md-nav" aria-label="前言">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    学习成果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    理论导论
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    练习内容
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-landsat" class="md-nav__link">
+    1 提取研究区域所有 Landsat 影像
+  </a>
+  
+    <nav class="md-nav" aria-label="1 提取研究区域所有 Landsat 影像">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 定义研究区域并将其可视化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-landsat-l2" class="md-nav__link">
+    1.2 加载 Landsat  L2 级影像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-landsat" class="md-nav__link">
+    1.3 重命名 Landsat 波段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4  去云掩膜
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-gcvi" class="md-nav__link">
+    1.5 计算并添加 GCVI 波段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    1.6  筛选数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    1.7 图表可视化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    1.8 获取作物类型数据集
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-landsat" class="md-nav__link">
+    2 将波段添加到 Landsat 图像以进行谐波回归
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    相关参考
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gee08.md" class="md-nav__link">
+        10 未完成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demo05/" class="md-nav__link">
+        还没用上 ChatGPT？那快试试全网通的 New Bing 吧！
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../open-geo-zh/">open-geo教程</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          open-geo教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+    <nav class="md-nav" aria-label="前言">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    学习成果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    理论导论
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    练习内容
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-landsat" class="md-nav__link">
+    1 提取研究区域所有 Landsat 影像
+  </a>
+  
+    <nav class="md-nav" aria-label="1 提取研究区域所有 Landsat 影像">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 定义研究区域并将其可视化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-landsat-l2" class="md-nav__link">
+    1.2 加载 Landsat  L2 级影像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-landsat" class="md-nav__link">
+    1.3 重命名 Landsat 波段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4  去云掩膜
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-gcvi" class="md-nav__link">
+    1.5 计算并添加 GCVI 波段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    1.6  筛选数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    1.7 图表可视化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    1.8 获取作物类型数据集
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-landsat" class="md-nav__link">
+    2 将波段添加到 Landsat 图像以进行谐波回归
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    相关参考
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<h1 id="geemap">Geemap 教程（九）：农作物分类可视化分析<a class="headerlink" href="#geemap" title="Permanent link">&para;</a></h1>
+<h2 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本章的目的是介绍如何使用 Earth Engine 中可用的数据集和函数绘制农业地图。我们将通过一个绘制美国中西部作物类型地图的示例，该地区是世界上主要的粮仓之一。本章中学到的技能将使您能够继续绘制其他农业特征图，例如产量和管理实践。</p>
+<h3 id="_2">学习成果<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>使用农田数据层 (CDL) 作为标签对美国中西部县的作物类型进行分类。</li>
+<li>使用 <code>ee.Reducer.linearRegression</code> 将二阶谐波回归拟合到裁剪时间序列并提取谐波系数。</li>
+<li>使用绿色叶绿素植被指数 (GCVI) 进行作物类型分类。</li>
+<li>训练随机森林根据调和系数对作物类型进行分类。</li>
+<li>将经过训练的随机森林分类器应用于研究区域并评估其性能。</li>
+</ul>
+<h3 id="_3">理论导论<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>农业是人类改变地球表面的主要方式之一。在全球范围内，约有 50 亿公顷（地球陆地面积的 38%）用于农业（粮农组织 2020）。其中大约三分之一用于种植农作物，而另外三分之二用于放牧牲畜。</p>
+<p>面对不断增长的人口和不断变化的气候，有效管理土地资源比以往任何时候都更加重要，以便为所有人种植足够的食物，同时最大限度地减少对环境的破坏。为此，遥感为监测农业提供了重要的数据来源。由于大多数农业都是在户外进行的，卫星和飞机上的传感器可以捕捉到许多作物特征。</p>
+<p>研究表明，作物随时间的光谱反射率可用于：</p>
+<ul>
+<li>
+<p>对作物类型进行分类（Wang 等人，2019 年）</p>
+</li>
+<li>
+<p>预测产量（Burke 和 Lobell，2017 年）</p>
+</li>
+<li>
+<p>检测作物胁迫（Ihuoma 和 Madramootoo，2017 年）</p>
+</li>
+<li>
+<p>确定灌溉条件（Deines 等人. 2017)</p>
+</li>
+<li>
+<p>量化物种多样性 (Duro et al. 2014)</p>
+</li>
+<li>
+<p>确定播种和收获日期 (Jain et al. 2016)</p>
+</li>
+</ul>
+<p>遥感图像也是精准农业兴起的关键，在精准农业中，管理实践在细微尺度上有所不同，以应对田地内作物需求的差异 (Azzari等人，2019; Jin等人，2017; Seifert等人，2018)。</p>
+<p>衡量农业实践和成果的最终目标是提高产量和减少环境退化。</p>
+<h3 id="_4">练习内容<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>在本次实习中，我们将使用 Earth Engine 提取 Landsat 图像并对美国中西部的作物类型进行分类。</p>
+<p>美国是世界上最大的玉米生产国和第二大大豆生产国；因此，保持美国的高产量对于全球粮食安全和价格稳定至关重要。</p>
+<p>作物类型测绘是使用卫星图像估算农业产量的重要先决条件。我们将展示：</p>
+<ol>
+<li>如何通过拟合调和回归和提取系数从时间序列中获取特征</li>
+<li>
+<p>然后我们将使用随机森林对作物类型进行分类：</p>
+</li>
+<li>
+<p>其中 <code>"ground truth"</code> 标签将来自美国农业部的农田数据层（CDL）</p>
+</li>
+<li>
+<p>CDL 本身是使用卫星图像作为输入并使用基于调查的地面实况作为训练标签的分类器的产物 (USDA 2021)</p>
+</li>
+<li>
+<p>我们在美国中西部演示作物类型分类，因为 CDL 允许我们验证我们的预测。</p>
+</li>
+</ol>
+<p>虽然使用卫星图像绘制作物类型地图已经在美国投入使用，但绘制作物类型地图在世界大部分地区仍然是一个公开的挑战。</p>
+<h2 id="1-landsat">1 提取研究区域所有 Landsat 影像<a class="headerlink" href="#1-landsat" title="Permanent link">&para;</a></h2>
+<p>在中西部，玉米和大豆占主导地位。我们将绘制伊利诺伊州麦克莱恩县的农作物类型图。这是美国玉米和大豆产量最多的县，分别为 62.9 和 1930 万 <strong>蒲式耳</strong>（Bushels）。</p>
+<h3 id="11">1.1 定义研究区域并将其可视化<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>首先，我们定义研究区域并将其可视化（图 A1.1.1）。我们从 <strong><em>美国人口普查局的 TIGER 数据集</em></strong> 中获取县边界，该数据集可在 Earth Engine 数据目录中找到。</p>
+<p>使用伊利诺伊州的 FIPS 码 (<code>STATEFP=17</code>) 和麦克莱恩县的名称 (<code>Name=McLean</code>)，从 TIGER 中提取麦克莱恩县特征。</p>
+<div class="highlight"><pre><span></span><code><span class="n">TIGER</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="s1">&#39;TIGER/2018/Counties&#39;</span><span class="p">)</span>
+<span class="n">region</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">TIGER</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;STATEFP&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">))</span> \
+                  <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;McLean&#39;</span><span class="p">))</span> \
+                  <span class="o">.</span><span class="n">first</span><span class="p">())</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+<span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">centerObject</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">region</span><span class="p">,{</span>
+   <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span>
+<span class="p">},</span> <span class="s1">&#39;McLean County&#39;</span><span class="p">)</span>
+<span class="n">Map</span>
+</code></pre></div>
+<p><a class="glightbox" href="../img/image-20230514164350224.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230514164350224" src="../img/image-20230514164350224.png" /></a></p>
+<p><center>图 A1.1.1 伊利诺伊州麦克莱恩县的位置和边界</center></p>
+<h3 id="12-landsat-l2">1.2 加载 Landsat  L2 级影像<a class="headerlink" href="#12-landsat-l2" title="Permanent link">&para;</a></h3>
+<p>接下来，我们导入 Landsat 7 和 8 图像，我们使用 Level-2 数据，其中包含经大气校正的表面反射率和地表温度。虽然大气顶层数据也会为许多农业应用产生良好的结果，但我们更喜欢在可用时针对大气条件进行了校正的数据，因为大气变化只是输入中的另一个噪声源。</p>
+<div class="highlight"><pre><span></span><code><span class="n">landsat7</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;LANDSAT/LE07/C02/T1_L2&#39;</span><span class="p">)</span>
+<span class="n">landsat8</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;LANDSAT/LC08/C02/T1_L2&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="13-landsat">1.3 重命名 Landsat 波段<a class="headerlink" href="#13-landsat" title="Permanent link">&para;</a></h3>
+<p>由于 Landsat 7 和 8 的传感器不同，导致各自的 Level-2 数据产品的波段编号也不同。</p>
+<p><center>表 A1.1.1 Landsat 7 和 8 L2 级数据产品对比</center></p>
+<table>
+<thead>
+<tr>
+<th>数据产品</th>
+<th>数据可用性</th>
+<th>传感器</th>
+<th>地表反射率波段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Landsat 7 L2</td>
+<td>1999-05-28 ~ 今</td>
+<td>ETM+</td>
+<td>7 个</td>
+</tr>
+<tr>
+<td>Landsat 8 L2</td>
+<td>2013-03-18 ~ 今</td>
+<td>OLI/TIRS</td>
+<td>8 个</td>
+</tr>
+</tbody>
+</table>
+<p>为了可以更轻松地同时处理 Landsat 7 和 8 数据，我们定义两个函数 <code>renameL7()</code> 和 <code>renameL8()</code> 将 Landsat 7 或 Landsat 8 数据的波段重命名为更直观的名称。</p>
+<p>例如，我们没有将 Landsat 7 图像的第一个波段称为 “B1” ，而是将其重命名为 “BLUE” ，因为波段 1 捕获可见光谱蓝色部分的光。</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">renameL7</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">rename</span><span class="p">([</span>
+        <span class="s1">&#39;BLUE&#39;</span><span class="p">,</span> <span class="s1">&#39;GREEN&#39;</span><span class="p">,</span> <span class="s1">&#39;RED&#39;</span><span class="p">,</span> <span class="s1">&#39;NIR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SWIR1&#39;</span><span class="p">,</span> <span class="s1">&#39;SWIR2&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ATMOS_OPACITY&#39;</span><span class="p">,</span> <span class="s1">&#39;QA_CLOUD&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ATRAN&#39;</span><span class="p">,</span> <span class="s1">&#39;CDIST&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;DRAD&#39;</span><span class="p">,</span> <span class="s1">&#39;EMIS&#39;</span><span class="p">,</span> <span class="s1">&#39;EMSD&#39;</span><span class="p">,</span> <span class="s1">&#39;QA&#39;</span><span class="p">,</span> <span class="s1">&#39;TRAD&#39;</span><span class="p">,</span> <span class="s1">&#39;URAD&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;QA_PIXEL&#39;</span><span class="p">,</span> <span class="s1">&#39;QA_RADSAT&#39;</span>
+    <span class="p">])</span>
+    <span class="k">return</span> <span class="n">img</span>
+
+<span class="k">def</span> <span class="nf">renameL8</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">rename</span><span class="p">([</span>
+        <span class="s1">&#39;AEROS&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;BLUE&#39;</span><span class="p">,</span> <span class="s1">&#39;GREEN&#39;</span><span class="p">,</span> <span class="s1">&#39;RED&#39;</span><span class="p">,</span> <span class="s1">&#39;NIR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SWIR1&#39;</span><span class="p">,</span> <span class="s1">&#39;SWIR2&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;QA_AEROSOL&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ATRAN&#39;</span><span class="p">,</span> <span class="s1">&#39;CDIST&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;DRAD&#39;</span><span class="p">,</span> <span class="s1">&#39;EMIS&#39;</span><span class="p">,</span> <span class="s1">&#39;EMSD&#39;</span><span class="p">,</span> <span class="s1">&#39;QA&#39;</span><span class="p">,</span> <span class="s1">&#39;TRAD&#39;</span><span class="p">,</span> <span class="s1">&#39;URAD&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;QA_PIXEL&#39;</span><span class="p">,</span> <span class="s1">&#39;QA_RADSAT&#39;</span>
+    <span class="p">])</span>
+    <span class="k">return</span> <span class="n">img</span>
+</code></pre></div>
+<h3 id="14">1.4  去云掩膜<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<p>下面，我们定义了两个函数：</p>
+<ul>
+<li><code>addMask()</code> 函数：将 <code>QA_PIXEL</code> 位掩码转换为多个掩码层</li>
+<li><code>maskQAClear()</code>  函数：从每个图像中删除所有非透明像素</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">addMask</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="c1"># Bit 0: Fill</span>
+    <span class="c1"># Bit 1: Dilated Cloud</span>
+    <span class="c1"># Bit 2: Cirrus (high confidence) (L8) or unused (L7)</span>
+    <span class="c1"># Bit 3: Cloud</span>
+    <span class="c1"># Bit 4: Cloud Shadow</span>
+    <span class="c1"># Bit 5: Snow</span>
+    <span class="c1"># Bit 6: Clear</span>
+    <span class="c1">#        0: Cloud or Dilated Cloud bits are set</span>
+    <span class="c1">#        1: Cloud and Dilated Cloud bits are not set</span>
+    <span class="c1"># Bit 7: Water</span>
+    <span class="n">clear</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;QA_PIXEL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span><span class="o">.</span><span class="n">neq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">clear</span> <span class="o">=</span> <span class="n">clear</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">clear</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">([</span><span class="s1">&#39;pxqa_clear&#39;</span><span class="p">])</span>
+
+    <span class="n">water</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;QA_PIXEL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span><span class="o">.</span><span class="n">neq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">water</span> <span class="o">=</span> <span class="n">water</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">water</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">([</span><span class="s1">&#39;pxqa_water&#39;</span><span class="p">])</span>
+
+    <span class="n">cloud_shadow</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;QA_PIXEL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">neq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">cloud_shadow</span> <span class="o">=</span> <span class="n">cloud_shadow</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">cloud_shadow</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">([</span>
+       <span class="s1">&#39;pxqa_cloudshadow&#39;</span>
+    <span class="p">])</span>
+
+    <span class="n">snow</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;QA_PIXEL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="o">.</span><span class="n">neq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">snow</span> <span class="o">=</span> <span class="n">snow</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">snow</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">([</span><span class="s1">&#39;pxqa_snow&#39;</span><span class="p">])</span>
+
+    <span class="n">masks</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span>
+       <span class="n">clear</span><span class="p">,</span> <span class="n">water</span><span class="p">,</span> <span class="n">cloud_shadow</span><span class="p">,</span> <span class="n">snow</span>
+    <span class="p">])</span>
+    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">maskQAClear</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;pxqa_clear&#39;</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="15-gcvi">1.5 计算并添加 GCVI 波段<a class="headerlink" href="#15-gcvi" title="Permanent link">&para;</a></h3>
+<p>除了ETM+和OLI感知的原始波段外，植被指数（VI）也可以帮助区分不同的植被类型。先前的工作发现，绿色叶绿素植被指数 (GCVI) 对于在中西部地区区分玉米和大豆特别有用（Wang 等人，2019 年）。我们将把它作为波段添加到每个 Landsat 图像中。</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">addGCVI</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">gcvi</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span>
+        <span class="s1">&#39;(nir / green) - 1&#39;</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;nir&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;NIR&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;green&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;GREEN&#39;</span><span class="p">)</span>
+        <span class="p">})</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;GCVI&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">img</span><span class="p">,</span> <span class="n">gcvi</span><span class="p">])</span>
+</code></pre></div>
+<h3 id="16">1.6  筛选数据<a class="headerlink" href="#16" title="Permanent link">&para;</a></h3>
+<p>现在我们准备为我们的研究区域提取 Landsat 7 和 8 数据并应用上述功能。我们将访问 2020 年 1 月 1 日至 12 月 31 日与麦克莱恩县相交的所有图像。由于不同的作物具有不同的生长特性，因此获取时间序列图像以区分作物何时生长、何时衰老和何时收获是有价值的。各个时间点的光谱反射率差异也可以提供信息。</p>
+<div class="highlight"><pre><span></span><code><span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2020-01-01&#39;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2020-12-31&#39;</span>
+
+<span class="c1"># 筛选出起止日期间研究区域的Landsat 7 和 8 数据</span>
+<span class="n">landsat7coll</span> <span class="o">=</span> <span class="n">landsat7</span><span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">region</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">renameL7</span><span class="p">)</span>
+
+<span class="n">landsat8coll</span> <span class="o">=</span> <span class="n">landsat8</span><span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">region</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">renameL8</span><span class="p">)</span>
+</code></pre></div>
+<p>接下来，我们合并 Landsat 7 和 Landsat 8 集合，屏蔽云层，并将 GCVI 添加为波段。</p>
+<div class="highlight"><pre><span></span><code><span class="n">landsat</span> <span class="o">=</span> <span class="n">landsat7coll</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">landsat8coll</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">)</span>
+
+<span class="c1"># 屏蔽不清晰的像素，添加 GCVI 和 time 变量</span>
+<span class="n">landsat</span> <span class="o">=</span> <span class="n">landsat</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">addMask</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">maskQAClear</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">addGCVI</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="17">1.7 图表可视化<a class="headerlink" href="#17" title="Permanent link">&para;</a></h3>
+<p>根据 CDL 的说法，我们可以使用 matplotlib 可视化特定点上的联合 Landsat GCVI 时间序列，在这种情况下，该点落在玉米田里。</p>
+<div class="highlight"><pre><span></span><code><span class="n">point</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span>
+    <span class="o">-</span><span class="mf">88.81417685576481</span><span class="p">,</span>
+    <span class="mf">40.579804398254005</span>
+<span class="p">])</span>
+<span class="c1"># 定义一个函数，用于对每个影像该点的 GCVI 值</span>
+<span class="c1"># 并返回一个包含 GCVI 值和时间属性的Feature</span>
+<span class="k">def</span> <span class="nf">get_gcvi_and_date</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+    <span class="c1"># 获取某一点上的 GCVI 值</span>
+    <span class="n">gcvi</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;GCVI&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">first</span><span class="p">(),</span> <span class="n">point</span><span class="p">)</span>
+    <span class="c1"># 获取影像的日期，使用ee.Date()方法，并格式化为YYYY-MM-dd</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;YYYY-MM-dd&#39;</span><span class="p">)</span>
+    <span class="c1"># 返回一个包含 GCVI 值和时间属性的要素</span>
+    <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span> <span class="s1">&#39;gcvi&#39;</span><span class="p">:</span> <span class="n">gcvi</span><span class="p">})</span>
+
+<span class="c1"># 使用ee.ImageCollection.map()方法来对影像集合中每个影像应用上面定义的函数</span>
+<span class="c1"># map()函数返回的是一个ee.ComputedObject类型的对象</span>
+<span class="c1"># 需要将结果转化为ee.FeatureCollection</span>
+<span class="n">gcvi_val</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">landsat</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">get_gcvi_and_date</span><span class="p">))</span>
+</code></pre></div>
+<p>将数据导出到 excel 表中</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">ee_to_pandas</span><span class="p">(</span><span class="n">gcvi_val</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1"># 使用apply()方法来获取每个字典中的GCVI值</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;gcvi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;gcvi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;GCVI&#39;</span><span class="p">])</span>
+<span class="c1"># 将gcvi列中的空值设置为NaN</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;gcvi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;gcvi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">GCVI_output</span> <span class="o">=</span> <span class="s1">&#39;./output/gcvi_chart.xlsx&#39;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">GCVI_output</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>date</th>
+<th>gcvi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020-01-02  00:00:00</td>
+<td></td>
+</tr>
+<tr>
+<td>2020-01-19  00:00:00</td>
+<td></td>
+</tr>
+<tr>
+<td>2020-01-26  00:00:00</td>
+<td></td>
+</tr>
+<tr>
+<td>2020-02-03  00:00:00</td>
+<td></td>
+</tr>
+<tr>
+<td>2020-02-11  00:00:00</td>
+<td></td>
+</tr>
+<tr>
+<td>2020-02-19  00:00:00</td>
+<td></td>
+</tr>
+<tr>
+<td>2020-02-20  00:00:00</td>
+<td>0.214667</td>
+</tr>
+</tbody>
+</table>
+<p>图表可视化</p>
+<div class="highlight"><pre><span></span><code><span class="n">GCVI_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">GCVI_output</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">GCVI_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">GCVI_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1"># 将gcvi列中的空值设置为NaN</span>
+<span class="n">GCVI_df</span><span class="p">[</span><span class="s1">&#39;gcvi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">GCVI_df</span><span class="p">[</span><span class="s1">&#39;gcvi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+<span class="c1"># 绘制散点折线图，使用日期作为x轴，GCVI值作为y轴，设置散点大小为10</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">GCVI_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="n">GCVI_df</span><span class="p">[</span><span class="s1">&#39;gcvi&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GCVI&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="mi">15</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Landsat GCVI time series&#39;</span><span class="p">)</span>
+
+<span class="c1"># 保存图形为一个png文件，分辨率为300dpi，要放在图像绘制之前</span>
+<span class="n">out_file</span> <span class="o">=</span> <span class="s2">&quot;./output/Landsat_GCVI_time_series.png&quot;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="18">1.8 获取作物类型数据集<a class="headerlink" href="#18" title="Permanent link">&para;</a></h3>
+<p>最后，我们还要看一下我们将用来训练和评估分类器的作物类型数据集。我们加载 2020 年的 CDL 图像并选择包含作物类型信息的图层。</p>
+<div class="highlight"><pre><span></span><code><span class="n">cdl</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;USDA/NASS/CDL/2020&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;cropland&#39;</span><span class="p">])</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">cdl</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">geometry</span><span class="p">),</span> <span class="p">{},</span> <span class="s1">&#39;CDL 2020&#39;</span><span class="p">)</span>
+<span class="n">Map</span>
+</code></pre></div>
+<p>在 CDL 中，玉米田以黄色显示，大豆田以绿色显示（图 A1.1.3）。</p>
+<p><a class="glightbox" href="../img/image-20230517105143561.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230517105143561" src="../img/image-20230517105143561.png" /></a></p>
+<p><center>图 A1.1.3 CDL对伊利诺斯州麦克莱恩县进行了可视化。玉米田用黄色表示，大豆田用深绿色表示。其他土地覆盖类型包括灰色的城市地区、蓝绿色的落叶森林和蓝色的水域。</center></p>
+<h2 id="2-landsat">2 将波段添加到 Landsat 图像以进行谐波回归<a class="headerlink" href="#2-landsat" title="Permanent link">&para;</a></h2>
+<p>现在我们有了一个影像集合，其中包含 2020 年麦克莱恩县所有可用的 Landsat 图像，我们可以从时间序列中提取特征以进行作物类型分类。</p>
+<p>调和回归是一种通过将正弦和余弦函数拟合到时间序列来提取特征的方法。也称为 ==<strong><em>傅里叶变换</em></strong>==，调和回归特别适用于定期重复出现的数据模式。特别是，我们拟合二阶调和回归，其形式为：</p>
+<div class="arithmatex">\[
+f(t)=a_1\cos(2\pi\omega t)+b_1\sin(2\pi\omega t)+a_2\cos(4\pi\omega t)+b_2\sin(4\pi\omega t)+c
+\tag*{A(1.1.1)}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(t\)</span> 为时间变量</li>
+<li><span class="arithmatex">\(f(t)\)</span> 是要拟合的观测变量</li>
+<li><span class="arithmatex">\(a、b、c\)</span> 是通过回归找到的系数</li>
+<li><span class="arithmatex">\(ω\)</span> 是控制谐波基周期的超参数，对于本练习，我们将使用 <span class="arithmatex">\(ω=1\)</span></li>
+</ul>
+<p>为了准备集合，我们定义了两个函数，它们向ImageCollection添加调和基和截距。第一个函数以年为单位将每幅图像的采集时间作为波段添加到图像中。该函数将图像和参考日期作为参数；新时间段是相对于此参考日期计算的。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 为图像添加时间带的函数</span>
+<span class="k">def</span> <span class="nf">addTimeUnit</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">refdate</span><span class="p">):</span>
+   <span class="n">date</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+   <span class="n">dyear</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">refdate</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">)</span>
+   <span class="n">t</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dyear</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+   <span class="n">imageplus</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+   <span class="k">return</span> <span class="n">imageplus</span>
+</code></pre></div>
+<h2 id="_5">相关参考<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p><a href="https://google-earth-engine.com/Human-Applications/Agricultural-Environments/">Gee-tutorials | Human Applications |Agricultural Environments (google-earth-engine.com)</a></p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-05-17T13:25:41+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-17</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-05-17T13:25:41+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-17</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../geemap05/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 8 长江流域水量平衡可视化(未完成)" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                8 长江流域水量平衡可视化(未完成)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../demo05/" class="md-footer__link md-footer__link--next" aria-label="下一页: 还没用上 ChatGPT？那快试试全网通的 New Bing 吧！" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                还没用上 ChatGPT？那快试试全网通的 New Bing 吧！
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 gis-xh
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/gis-xh" target="_blank" rel="noopener" title="GitHub | gis-xh" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.indexes", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../mkdocs/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

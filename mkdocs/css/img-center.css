@@ -1,0 +1,5 @@
+/* Center all images & tables */
+img {
+  display: block;
+  margin: 0 auto;
+}
