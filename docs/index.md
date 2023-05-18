@@ -27,8 +27,3 @@
 
 ![image-20230425105100059](./img/image-20230425105100059.png)
 
-
-
-## 参与贡献
-
-1. 亚瑟 [gis-xh](https://github.com/gis-xh)

@@ -14,6 +14,8 @@ jobs: # 工作流的具体内容
     runs-on: ubuntu-latest # 创建一个新的云端虚拟机 使用最新Ubuntu系统
     steps:
       - uses: actions/checkout@v3 # 先checkout到main分支
+        with:
+          fetch-depth: 0 # 获取所有标签和分支的所有历史记录
       - uses: actions/setup-python@v4 # 再安装Python3和相关环境
         with:
           python-version: 3.x
@@ -27,4 +29,5 @@ jobs: # 工作流的具体内容
       - run: pip install mkdocs-material # 使用pip包管理工具安装mkdocs-material
       - run: pip install mkdocs-glightbox # 安装图像缩放工具
       - run: pip install mkdocs-git-revision-date-localized-plugin # 获取github文档时间
+      - run: pip install mkdocs-git-authors-plugin # 获取github作者
       - run: mkdocs gh-deploy --force # 使用mkdocs-material部署gh-pages分支
