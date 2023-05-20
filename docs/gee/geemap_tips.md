@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # Geemap 小技巧
 
 

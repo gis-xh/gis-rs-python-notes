@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # Geemap 教程（六）：农作物分类可视化分析
 
 

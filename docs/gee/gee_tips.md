@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # GEE 小技巧
 
 ### GEE求mean值后如何保证结果为整数？
