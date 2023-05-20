@@ -19,7 +19,7 @@
         <link rel="next" href="../gee01/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
@@ -104,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#geemean" class="md-skip">
+        <a href="#gee" class="md-skip">
           跳转至
         </a>
       
@@ -427,6 +427,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           GEE 小技巧
@@ -442,6 +444,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -479,7 +483,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gee" class="md-nav__link">
+  <a href="#gee_1" class="md-nav__link">
     gee怎么打印影像属性信息？
   </a>
   
@@ -841,6 +845,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -877,7 +883,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gee" class="md-nav__link">
+  <a href="#gee_1" class="md-nav__link">
     gee怎么打印影像属性信息？
   </a>
   
@@ -912,8 +918,7 @@
   
 
 
-  <h1>GEE 小技巧</h1>
-
+<h1 id="gee">GEE 小技巧<a class="headerlink" href="#gee" title="Permanent link">&para;</a></h1>
 <h3 id="geemean">GEE求mean值后如何保证结果为整数？<a class="headerlink" href="#geemean" title="Permanent link">&para;</a></h3>
 <p>如果你想要求mean值后得到整数，你可以使用toInt()方法来把结果转换成整数。例如：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -934,7 +939,7 @@
 <p>ee.Reducer.mean()是一个用于计算输入数据的平均值的Reducer对象，它可以用于对图像集合、图像、图像区域、图像邻域等进行空间或时间上的统计分析。</p>
 <p>mean()是一个用于计算输入数据的平均值的方法，它可以直接应用于图像集合或图像，相当于调用reduce(ee.Reducer.mean())，但是不会在输出波段名称后面添加"_mean"。</p>
 <p>ee.Reducer.mean()和mean()在功能上是相同的，都是用于计算输入数据的平均值，但是在输出波段名称上有所不同，ee.Reducer.mean()会在波段名称后面添加"_mean"，而mean()不会。</p>
-<h3 id="gee">gee怎么打印影像属性信息？<a class="headerlink" href="#gee" title="Permanent link">&para;</a></h3>
+<h3 id="gee_1">gee怎么打印影像属性信息？<a class="headerlink" href="#gee_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -985,7 +990,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         <!-- mkdocs-git-revision-date-localized-plugin -->
         
         最后更新:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-05-11T19:47:48+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-11</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-05-20T17:38:16+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-20</span>
         
         <br />
         创建日期:
@@ -993,6 +998,12 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         
 
         <!-- mkdocs-git-revision-date-plugin -->
+        
+
+        <br />
+        
+        作者:
+        <span class='git-page-authors git-authors'><a href='mailto:1612990205@qq.com'>gis-xh</a></span>
         
     </small>
 </div>
@@ -1003,15 +1014,52 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 
 
 
+<!-- Insert Giscus generated snippet here -->
+<script src="https://giscus.app/client.js" data-repo="gis-xh/gis-rs-python-notes" data-repo-id="R_kgDOJa8emg"
+    data-category="Announcements" data-category-id="DIC_kwDOJa8ems4CWnaQ" data-mapping="pathname" data-strict="0"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
+    data-lang="zh-CN" crossorigin="anonymous" async>
+    </script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function () {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function () {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
+
                 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TMF8D9R197"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-<div class="md-source-date">
-    <small>
-        作者: <span class='git-page-authors git-authors'><a href='mailto:1612990205@qq.com'>gis-xh</a></span>
-    </small>
-</div>
-
+    gtag('config', 'G-TMF8D9R197');
+</script>
 
 
               </article>
