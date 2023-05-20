@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # GEE 教程（三）：GEE Python API 的配置与使用
 
 

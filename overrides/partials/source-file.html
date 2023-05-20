@@ -22,5 +22,11 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         {{ lang.t("source.file.date.updated") }}:
         {{ page.meta.revision_date }}
         {% endif %}
+
+        <br />
+        {% if git_page_authors %}
+        {{ "作者:" }}
+        {{ git_page_authors | default('enable mkdocs-git-authors-plugin') }}
+        {% endif %}
     </small>
 </div>

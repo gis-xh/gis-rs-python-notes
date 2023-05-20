@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # 还没用上 ChatGPT？那快试试全网通的 New Bing 吧！
 
 
