@@ -70,6 +70,9 @@ nav:
       - 7 未完成: gee/gee081.md
   - open-geo 教程: 
     - open-geo-zh/index.md
+    - samgeo 教程:
+      - 1 基本介绍: open-geo-zh/sam-geo/01index.md
+      - 2 geemap + samgeo 示例: open-geo-zh/sam-geo/02geemap_sam.md
   - 其他:
     - 还没用上 ChatGPT？那快试试全网通的 New Bing 吧！: gee/demo05.md
 

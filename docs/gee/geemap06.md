@@ -4,7 +4,7 @@
 
 ## 前言
 
-本章的目的是介绍如何使用 Earth Engine 中可用的数据集和函数绘制农业地图。我们将通过一个绘制美国中西部作物类型地图的示例，该地区是世界上主要的粮仓之一。本章中学到的技能将使您能够继续绘制其他农业特征图，例如产量和管理实践。
+&emsp;&emsp;本章的目的是介绍如何使用 Earth Engine 中可用的数据集和函数绘制农业地图。我们将通过一个绘制美国中西部作物类型地图的示例，该地区是世界上主要的粮仓之一。本章中学到的技能将使您能够继续绘制其他农业特征图，例如产量和管理实践。
 
 
 
@@ -20,11 +20,11 @@
 
 ### 理论导论
 
-农业是人类改变地球表面的主要方式之一。在全球范围内，约有 50 亿公顷（地球陆地面积的 38%）用于农业（粮农组织 2020）。其中大约三分之一用于种植农作物，而另外三分之二用于放牧牲畜。
+&emsp;&emsp;农业是人类改变地球表面的主要方式之一。在全球范围内，约有 50 亿公顷（地球陆地面积的 38%）用于农业（粮农组织 2020）。其中大约三分之一用于种植农作物，而另外三分之二用于放牧牲畜。
 
-面对不断增长的人口和不断变化的气候，有效管理土地资源比以往任何时候都更加重要，以便为所有人种植足够的食物，同时最大限度地减少对环境的破坏。为此，遥感为监测农业提供了重要的数据来源。由于大多数农业都是在户外进行的，卫星和飞机上的传感器可以捕捉到许多作物特征。
+&emsp;&emsp;面对不断增长的人口和不断变化的气候，有效管理土地资源比以往任何时候都更加重要，以便为所有人种植足够的食物，同时最大限度地减少对环境的破坏。为此，遥感为监测农业提供了重要的数据来源。由于大多数农业都是在户外进行的，卫星和飞机上的传感器可以捕捉到许多作物特征。
 
-研究表明，作物随时间的光谱反射率可用于：
+&emsp;&emsp;研究表明，作物随时间的光谱反射率可用于：
 
 - 对作物类型进行分类（Wang 等人，2019 年）
 
@@ -38,41 +38,42 @@
 
 - 确定播种和收获日期 (Jain et al. 2016)
 
-遥感图像也是精准农业兴起的关键，在精准农业中，管理实践在细微尺度上有所不同，以应对田地内作物需求的差异 (Azzari等人，2019; Jin等人，2017; Seifert等人，2018)。
+&emsp;&emsp;遥感图像也是精准农业兴起的关键，在精准农业中，管理实践在细微尺度上有所不同，以应对田地内作物需求的差异 (Azzari等人，2019; Jin等人，2017; Seifert等人，2018)。
 
-衡量农业实践和成果的最终目标是提高产量和减少环境退化。
+&emsp;&emsp;衡量农业实践和成果的最终目标是提高产量和减少环境退化。
 
 
 
 ### 练习内容
 
-在本次实习中，我们将使用 Earth Engine 提取 Landsat 图像并对美国中西部的作物类型进行分类。
+&emsp;&emsp;在本次实习中，我们将使用 Earth Engine 提取 Landsat 图像并对美国中西部的作物类型进行分类。
 
-美国是世界上最大的玉米生产国和第二大大豆生产国；因此，保持美国的高产量对于全球粮食安全和价格稳定至关重要。
+&emsp;&emsp;美国是世界上最大的玉米生产国和第二大大豆生产国；因此，保持美国的高产量对于全球粮食安全和价格稳定至关重要。
 
-作物类型测绘是使用卫星图像估算农业产量的重要先决条件。我们将展示：
+&emsp;&emsp;作物类型测绘是使用卫星图像估算农业产量的重要先决条件。我们将展示：
 
-1. 如何通过拟合调和回归和提取系数从时间序列中获取特征
-2. 然后我们将使用随机森林对作物类型进行分类：
+&emsp;&emsp;1、如何通过拟合调和回归和提取系数从时间序列中获取特征
+
+&emsp;&emsp;2、然后我们将使用随机森林对作物类型进行分类：
 
 - 其中 `"ground truth"` 标签将来自美国农业部的农田数据层（CDL）
 - CDL 本身是使用卫星图像作为输入并使用基于调查的地面实况作为训练标签的分类器的产物 (USDA 2021)
 
-3. 我们在美国中西部演示作物类型分类，因为 CDL 允许我们验证我们的预测。
+&emsp;&emsp;3、我们在美国中西部演示作物类型分类，因为 CDL 允许我们验证我们的预测。
 
-虽然使用卫星图像绘制作物类型地图已经在美国投入使用，但绘制作物类型地图在世界大部分地区仍然是一个公开的挑战。
+&emsp;&emsp;虽然使用卫星图像绘制作物类型地图已经在美国投入使用，但绘制作物类型地图在世界大部分地区仍然是一个公开的挑战。
 
 
 
 ## 1 提取研究区域所有 Landsat 影像
 
-在中西部，玉米和大豆占主导地位。我们将绘制伊利诺伊州麦克莱恩县的农作物类型图。这是美国玉米和大豆产量最多的县，分别为 62.9 和 1930 万 **蒲式耳**（Bushels）。
+&emsp;&emsp;在中西部，玉米和大豆占主导地位。我们将绘制伊利诺伊州麦克莱恩县的农作物类型图。这是美国玉米和大豆产量最多的县，分别为 62.9 和 1930 万 **蒲式耳**（Bushels）。
 
 ### 1.1 定义研究区域并将其可视化
 
-首先，我们定义研究区域并将其可视化（图 A1.1.1）。我们从 ***美国人口普查局的 TIGER 数据集*** 中获取县边界，该数据集可在 Earth Engine 数据目录中找到。
+&emsp;&emsp;首先，我们定义研究区域并将其可视化（图 A1.1.1）。我们从 ***美国人口普查局的 TIGER 数据集*** 中获取县边界，该数据集可在 Earth Engine 数据目录中找到。
 
-使用伊利诺伊州的 FIPS 码 (`STATEFP=17`) 和麦克莱恩县的名称 (`Name=McLean`)，从 TIGER 中提取麦克莱恩县特征。
+&emsp;&emsp;使用伊利诺伊州的 FIPS 码 (`STATEFP=17`) 和麦克莱恩县的名称 (`Name=McLean`)，从 TIGER 中提取麦克莱恩县特征。
 
 ```python
 TIGER = ee.FeatureCollection('TIGER/2018/Counties')
@@ -93,7 +94,7 @@ Map
 
 ### 1.2 加载 Landsat  L2 级影像
 
-接下来，我们导入 Landsat 7 和 8 图像，我们使用 Level-2 数据，其中包含经大气校正的表面反射率和地表温度。虽然大气顶层数据也会为许多农业应用产生良好的结果，但我们更喜欢在可用时针对大气条件进行了校正的数据，因为大气变化只是输入中的另一个噪声源。
+&emsp;&emsp;接下来，我们导入 Landsat 7 和 8 图像，我们使用 Level-2 数据，其中包含经大气校正的表面反射率和地表温度。虽然大气顶层数据也会为许多农业应用产生良好的结果，但我们更喜欢在可用时针对大气条件进行了校正的数据，因为大气变化只是输入中的另一个噪声源。
 
 ```python
 landsat7 = ee.ImageCollection('LANDSAT/LE07/C02/T1_L2')
@@ -102,7 +103,7 @@ landsat8 = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
 
 ### 1.3 重命名 Landsat 波段
 
-由于 Landsat 7 和 8 的传感器不同，导致各自的 Level-2 数据产品的波段编号也不同。
+&emsp;&emsp;由于 Landsat 7 和 8 的传感器不同，导致各自的 Level-2 数据产品的波段编号也不同。
 
 <center>表 A1.1.1 Landsat 7 和 8 L2 级数据产品对比</center>
 
@@ -111,9 +112,9 @@ landsat8 = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
 | Landsat 7 L2 | 1999-05-28 ~ 今 | ETM+     | 7 个           |
 | Landsat 8 L2 | 2013-03-18 ~ 今 | OLI/TIRS | 8 个           |
 
-为了可以更轻松地同时处理 Landsat 7 和 8 数据，我们定义两个函数 `renameL7()` 和 `renameL8()` 将 Landsat 7 或 Landsat 8 数据的波段重命名为更直观的名称。
+&emsp;&emsp;为了可以更轻松地同时处理 Landsat 7 和 8 数据，我们定义两个函数 `renameL7()` 和 `renameL8()` 将 Landsat 7 或 Landsat 8 数据的波段重命名为更直观的名称。
 
-例如，我们没有将 Landsat 7 图像的第一个波段称为 “B1” ，而是将其重命名为 “BLUE” ，因为波段 1 捕获可见光谱蓝色部分的光。
+&emsp;&emsp;例如，我们没有将 Landsat 7 图像的第一个波段称为 “B1” ，而是将其重命名为 “BLUE” ，因为波段 1 捕获可见光谱蓝色部分的光。
 
 ```python
 def renameL7(img):
@@ -142,7 +143,7 @@ def renameL8(img):
 
 ### 1.4  去云掩膜
 
-下面，我们定义了两个函数：
+&emsp;&emsp;下面，我们定义了两个函数：
 
 - `addMask()` 函数：将 `QA_PIXEL` 位掩码转换为多个掩码层
 - `maskQAClear()`  函数：从每个图像中删除所有非透明像素
@@ -184,7 +185,7 @@ def maskQAClear(img):
 
 ### 1.5 计算并添加 GCVI 波段
 
-除了ETM+和OLI感知的原始波段外，植被指数（VI）也可以帮助区分不同的植被类型。先前的工作发现，绿色叶绿素植被指数 (GCVI) 对于在中西部地区区分玉米和大豆特别有用（Wang 等人，2019 年）。我们将把它作为波段添加到每个 Landsat 图像中。
+&emsp;&emsp;除了ETM+和OLI感知的原始波段外，植被指数（VI）也可以帮助区分不同的植被类型。先前的工作发现，绿色叶绿素植被指数 (GCVI) 对于在中西部地区区分玉米和大豆特别有用（Wang 等人，2019 年）。我们将把它作为波段添加到每个 Landsat 图像中。
 
 ```python
 def addGCVI(img):
@@ -199,7 +200,7 @@ def addGCVI(img):
 
 ### 1.6  筛选数据
 
-现在我们准备为我们的研究区域提取 Landsat 7 和 8 数据并应用上述功能。我们将访问 2020 年 1 月 1 日至 12 月 31 日与麦克莱恩县相交的所有图像。由于不同的作物具有不同的生长特性，因此获取时间序列图像以区分作物何时生长、何时衰老和何时收获是有价值的。各个时间点的光谱反射率差异也可以提供信息。
+&emsp;&emsp;现在我们准备为我们的研究区域提取 Landsat 7 和 8 数据并应用上述功能。我们将访问 2020 年 1 月 1 日至 12 月 31 日与麦克莱恩县相交的所有图像。由于不同的作物具有不同的生长特性，因此获取时间序列图像以区分作物何时生长、何时衰老和何时收获是有价值的。各个时间点的光谱反射率差异也可以提供信息。
 
 ```python
 start_date = '2020-01-01'
@@ -215,7 +216,7 @@ landsat8coll = landsat8.filterBounds(region) \
 	.map(renameL8)
 ```
 
-接下来，我们合并 Landsat 7 和 Landsat 8 集合，屏蔽云层，并将 GCVI 添加为波段。
+&emsp;&emsp;接下来，我们合并 Landsat 7 和 Landsat 8 集合，屏蔽云层，并将 GCVI 添加为波段。
 
 ```python
 landsat = landsat7coll.merge(landsat8coll) \
@@ -229,7 +230,7 @@ landsat = landsat.map(addMask) \
 
 ### 1.7 图表可视化
 
-根据 CDL 的说法，我们可以使用 matplotlib 可视化特定点上的联合 Landsat GCVI 时间序列，在这种情况下，该点落在玉米田里。
+&emsp;&emsp;根据 CDL 的说法，我们可以使用 matplotlib 可视化特定点上的联合 Landsat GCVI 时间序列，在这种情况下，该点落在玉米田里。
 
 ```python
 point = ee.Geometry.Point([
@@ -252,7 +253,7 @@ def get_gcvi_and_date(image):
 gcvi_val = ee.FeatureCollection(landsat.map(get_gcvi_and_date))
 ```
 
-将数据导出到 excel 表中
+&emsp;&emsp;将数据导出到 excel 表中
 
 ```python
 df = geemap.ee_to_pandas(gcvi_val)
@@ -275,7 +276,7 @@ df.to_excel(GCVI_output, index=False)
 | 2020-02-19  00:00:00 |          |
 | 2020-02-20  00:00:00 | 0.214667 |
 
-图表可视化
+&emsp;&emsp;我们可以使用 matplotlib 包来可视化特定点上的综合 Landsat GCVI 时间序列，在本例中，该点位于玉米地
 
 ```python
 GCVI_df = pd.read_excel(GCVI_output)
@@ -296,9 +297,15 @@ plt.savefig(out_file, dpi=300)
 plt.show()
 ```
 
+![Landsat_GCVI_time_series](./img/Landsat_GCVI_time_series.png)
+
+<center>图 A1.1.2 Landsat GCVI 时间序列在伊利诺伊州麦克林县玉米点的可视化。GCVI越高，叶片叶绿素含量越高；庄稼在六月变绿，九月衰老。</center>
+
+
+
 ### 1.8 获取作物类型数据集
 
-最后，我们还要看一下我们将用来训练和评估分类器的作物类型数据集。我们加载 2020 年的 CDL 图像并选择包含作物类型信息的图层。
+&emsp;&emsp;最后，我们还要看一下我们将用来训练和评估分类器的作物类型数据集。我们加载 2020 年的 CDL 图像并选择包含作物类型信息的图层。
 
 ```python
 cdl = ee.Image('USDA/NASS/CDL/2020').select(['cropland'])
@@ -306,7 +313,7 @@ Map.addLayer(cdl.clip(geometry), {}, 'CDL 2020')
 Map
 ```
 
-在 CDL 中，玉米田以黄色显示，大豆田以绿色显示（图 A1.1.3）。
+&emsp;&emsp;在 CDL 中，玉米田以黄色显示，大豆田以绿色显示（图 A1.1.3）。
 
 ![image-20230517105143561](./img/image-20230517105143561.png)
 
@@ -314,11 +321,11 @@ Map
 
 
 
-## 2 将波段添加到 Landsat 图像以进行谐波回归
+## 2 向 Landsat 影像添加进行谐波回归后的波段
 
-现在我们有了一个影像集合，其中包含 2020 年麦克莱恩县所有可用的 Landsat 图像，我们可以从时间序列中提取特征以进行作物类型分类。
+&emsp;&emsp;现在我们有了一个影像集合，其中包含 2020 年麦克莱恩县所有可用的 Landsat 图像，我们可以从时间序列中提取特征以进行作物类型分类。
 
-调和回归是一种通过将正弦和余弦函数拟合到时间序列来提取特征的方法。也称为 ==***傅里叶变换***==，调和回归特别适用于定期重复出现的数据模式。特别是，我们拟合二阶调和回归，其形式为：
+&emsp;&emsp;调和回归是一种通过将正弦和余弦函数拟合到时间序列来提取特征的方法。也称为 ==***傅里叶变换***==，调和回归特别适用于定期重复出现的数据模式。特别是，我们拟合二阶调和回归，其形式为：
 
 $$
 f(t)=a_1\cos(2\pi\omega t)+b_1\sin(2\pi\omega t)+a_2\cos(4\pi\omega t)+b_2\sin(4\pi\omega t)+c
@@ -330,16 +337,49 @@ $$
 - $a、b、c$ 是通过回归找到的系数
 - $ω$ 是控制谐波基周期的超参数，对于本练习，我们将使用 $ω=1$
 
-为了准备集合，我们定义了两个函数，它们向ImageCollection添加调和基和截距。第一个函数以年为单位将每幅图像的采集时间作为波段添加到图像中。该函数将图像和参考日期作为参数；新时间段是相对于此参考日期计算的。
+
+### 2.1 为图像添加时间带
+
+&emsp;&emsp;为了准备集合，我们定义了两个函数，它们向 ImageCollection 添加调和基与截距。
+
+&emsp;&emsp;第一个函数以年为单位将每幅图像的采集时间作为波段添加到图像中。该函数将图像和参考日期作为参数；新时间段是相对于此参考日期计算的。
 
 ```python
-# 为图像添加时间带的函数
 def addTimeUnit(image, refdate):
    date = image.date()
    dyear = date.difference(refdate, 'year')
    t = image.select(0).multiply(0).add(dyear).select([0], ['t']).float()
    imageplus = image.addBands(t)
    return imageplus
+```
+
+### 2.2 向图像添加谐波基
+
+&emsp;&emsp;第二个函数先调用 `addTimeUnit()`，然后获取每张图像采集时间的正弦和余弦，并将它们作为新波段添加到每个图像。我们正在拟合二阶谐波回归，因此我们将添加两个正弦项和两个余弦项作为频带，以及一个常数项。该函数还允许使用 $ω$ (omega) 的任何值。
+
+&emsp;&emsp;需要注意的是，为了创建 “constant” 波段，我们将时间波段本身分开；这将得到一个值为 1 的波段，并且掩码与time波段相同。
+
+```python
+def addHarmonics(image, omega, refdate):
+    image = addTimeUnit(image, refdate)
+    timeRadians = image.select('t').multiply(2 * math.pi * omega)
+    timeRadians2 = image.select('t').multiply(4 * math.pi * omega)
+
+    return image.addBands(timeRadians.cos().rename('cos')) \
+        .addBands(timeRadians.sin().rename('sin')) \
+        .addBands(timeRadians2.cos().rename('cos2')) \
+        .addBands(timeRadians2.sin().rename('sin2')) \
+        .addBands(timeRadians.divide(timeRadians).rename('constant'))
+```
+
+我们拥有将正弦和余弦项添加到每个图像所需的所有工具——我们只需使用 `map()` 将 `addHarmonics()` 应用到集合中的每个图像。我们使用2020年1月1日的 `start_date` 作为参考日期。
+
+```python
+omega = 1
+def use_addHarmonics(image):
+    return addHarmonics(image, omega, start_date)
+landsatPlus = landsat.map(use_addHarmonics)
+print('Landsat collection with harmonic basis: ', landsatPlus)
 ```
 
 
@@ -352,3 +392,8 @@ def addTimeUnit(image, refdate):
 ## 相关参考
 
 [Gee-tutorials | Human Applications |Agricultural Environments (google-earth-engine.com)](https://google-earth-engine.com/Human-Applications/Agricultural-Environments/)
+
+```
+&emsp;&emsp;
+```
+

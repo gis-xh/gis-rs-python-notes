@@ -32,7 +32,7 @@ pypi | GDAL 官网：https://pypi.org/project/GDAL/
 1、首先，将核心组件的位置添加在 PATH 环境变量中
 
 ```
-C:\Program Files\GDAL
+C:\Program Files\GDAL\
 ```
 
 ![image-20230426195929718](./img/image-20230426195929718.png)
@@ -86,7 +86,9 @@ error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft 
 conda install libpython m2w64-toolchain -c msys2
 ```
 
+解决方案：[python3.9安装gdal库（便捷版）_python3.9 gdal_橙色的小太阳的博客-CSDN博客](https://blog.csdn.net/w259775/article/details/123643956)
 
+whl安装包下载地址：[Releases · cgohlke/geospatial-wheels (github.com)](https://github.com/cgohlke/geospatial-wheels/releases)
 
 
 
@@ -124,9 +126,25 @@ mamba install -c conda-forge jupyterlab jupyterlab-language-pack-zh-CN -y
 conda remove -n open-geo --all
 ```
 
-### 2.2 安装 GDAL 与 rasterio
+### 2.2 安装 VS C++ 生成工具
+
+参考：[【已解决】error: Microsoft Visual C++ 14.0 or greater is required_ViatorSun的博客-CSDN博客](https://blog.csdn.net/ViatorSun/article/details/118699938)
+
+官网下载：[Microsoft C++ Build Tools - Visual Studio](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+
+![image-20230528143409438](./img/image-20230528143409438.png)
+
+选择 Visual C++ 生成工具进行安装即可
+
+![image-20230528144140873](./img/image-20230528144140873.png)
 
 
+
+[Microsoft Visual C++ 14.0 is required._哈哈哈，冲冲冲的博客-CSDN博客](https://blog.csdn.net/qzzzxiaosheng/article/details/125119006)
+
+
+
+### 2.3 安装 GDAL 与 rasterio
 
 
 rasterio 是一个 python 看栅格图像的包，依赖于 GDAL 库。

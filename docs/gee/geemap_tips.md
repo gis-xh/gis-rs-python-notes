@@ -60,3 +60,47 @@ conda env export > geemap01.yaml
 conda env create -f geemap01.yaml
 ```
 
+
+
+### 6 Python 原始镜像源
+
+使用原始镜像源更新
+
+```sh
+pip install -U geemap -i https://pypi.python.org/simple
+```
+
+
+
+### 7 查看当前环境
+
+```
+geemap.Report()
+```
+
+![image-20230527164356663](./img/image-20230527164356663.png)
+
+
+
+### 8 环境配置
+
+考虑到各个包的复杂依赖环境，我们可以使用mamba库进行虚拟环境的配置。
+
+首先，给基础虚拟环境安装 mamba 库
+
+```sh
+conda install -n base mamba -c conda-forge -y
+```
+
+然后，就可以使用 mamba 创建虚拟环境
+
+```sh
+mamba create -n geemap02  pygis rasterio leafmap geopandas localtileserver segment-geospatial geemap python=3.9 -c conda-forge
+```
+
+如果环境出现问题，可以使用移除命令移除。
+
+```sh
+conda remove -n geemap02 --all
+```
+
