@@ -19,7 +19,7 @@
         <link rel="next" href="../gee01/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
@@ -27,10 +27,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -462,8 +462,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#geemap" class="md-nav__link">
-    GEEMAP如何获取波段数？
+  <a href="#_1" class="md-nav__link">
+    获取波段数
   </a>
   
 </li>
@@ -492,6 +492,13 @@
         <li class="md-nav__item">
   <a href="#map" class="md-nav__link">
     map() 函数原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2google" class="md-nav__link">
+    为什么哨兵2号数据不如google卫星影像清晰？
   </a>
   
 </li>
@@ -749,12 +756,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../open-geo-zh/">open-geo 教程</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -765,6 +778,76 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          samgeo 教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          samgeo 教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-geo-zh/sam-geo/01index/" class="md-nav__link">
+        1 基本介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-geo-zh/sam-geo/02geemap_sam/" class="md-nav__link">
+        2 geemap + samgeo 示例
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
             
           
         </ul>
@@ -862,8 +945,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#geemap" class="md-nav__link">
-    GEEMAP如何获取波段数？
+  <a href="#_1" class="md-nav__link">
+    获取波段数
   </a>
   
 </li>
@@ -892,6 +975,13 @@
         <li class="md-nav__item">
   <a href="#map" class="md-nav__link">
     map() 函数原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2google" class="md-nav__link">
+    为什么哨兵2号数据不如google卫星影像清晰？
   </a>
   
 </li>
@@ -925,10 +1015,10 @@
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">imageCollection</span><span class="p">.</span><span class="nx">mean</span><span class="p">();</span><span class="w"> </span><span class="c1">// mean is a float image</span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">intMean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mean</span><span class="p">.</span><span class="nx">toInt</span><span class="p">();</span><span class="w"> </span><span class="c1">// intMean is an integer image</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="geemap">GEEMAP如何获取波段数？<a class="headerlink" href="#geemap" title="Permanent link">&para;</a></h3>
-<p>可以使用image.bandNames()方法来获取一个图像的波段名称列表，然后使用list.size()方法来获取列表的长度，也就是波段数。</p>
-<p>可以使用geemap.image_props()方法来获取一个图像的属性信息，包括波段数、波段名称、分辨率、投影等。</p>
-<p>可以使用image.getInfo()方法来获取一个图像的详细信息，包括波段数、波段名称、数据类型、元数据等。</p>
+<h3 id="_1">获取波段数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>使用 <code>image.bandNames()</code> 方法来获取一个图像的波段名称列表，然后使用 <code>list.size()</code> 方法来获取列表的长度，也就是波段数。</p>
+<p>使用 <code>geemap.image_props()</code> 方法来获取一个图像的属性信息，包括波段数、波段名称、分辨率、投影等。</p>
+<p>使用 <code>image.getInfo()</code> 方法来获取一个图像的详细信息，包括波段数、波段名称、数据类型、元数据等。</p>
 <h3 id="tobands">toBands()是什么意思？<a class="headerlink" href="#tobands" title="Permanent link">&para;</a></h3>
 <p>toBands() 是一个针对 ee.ImageCollection 的数学运算方法</p>
 <ul>
@@ -977,6 +1067,9 @@
 <h3 id="map">map() 函数原理<a class="headerlink" href="#map" title="Permanent link">&para;</a></h3>
 <p>使用ee.ImageCollection.map()方法来对影像集合中每个影像应用已定义的函数</p>
 <p>map()函数，它可以对一个影像集合（ImageCollection）中的每一个影像（Image）应用一个函数，并返回一个新的影像集合。所以，map()函数返回的是一个ee.ComputedObject类型的对象，它是Earth Engine中的一种数据类型，表示一个在服务器端计算的对象。</p>
+<h3 id="2google">为什么哨兵2号数据不如google卫星影像清晰？<a class="headerlink" href="#2google" title="Permanent link">&para;</a></h3>
+<p>哨兵2号数据和Google卫星影像的清晰度可能受到多个因素的影响，包括空间分辨率，光谱分辨率，大气校正，云遮挡，拼接处理等。哨兵2号数据的空间分辨率在10米到60米之间，而Google卫星影像的空间分辨率可能更高，因为它使用了多个不同的数据源，包括高分辨率的航空影像和矢量切片地图。哨兵2号数据的光谱分辨率有13个波段，覆盖了可见光，近红外和短波红外的范围，而Google卫星影像的光谱分辨率可能更低，因为它主要用于显示真彩色图像。哨兵2号数据提供了一级和二级的产品，其中一级产品是原始的拓扑校正图像，而二级产品是经过大气校正和地理校正的正射影像。Google卫星影像可能经过了更多的处理和优化，以提高图像的质量和一致性。哨兵2号数据受到云遮挡的影响，因为它是一个光学传感器，而Google卫星影像可能使用了多时相的数据来去除云层或填补缺失值。哨兵2号数据按照固定的网格划分为100×100公里的瓦片，而Google卫星影像可能使用了更复杂的拼接算法来生成无缝的地图。</p>
+<p>总之，哨兵2号数据和Google卫星影像有各自的优势和局限性，你可以根据你的应用目的和需求来选择合适的数据源。哨兵2号数据更适合于科学研究和环境监测，而Google卫星影像更适合于可视化和导航。</p>
 
   
 
@@ -990,7 +1083,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         <!-- mkdocs-git-revision-date-localized-plugin -->
         
         最后更新:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-05-20T21:40:30+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-20</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-06-06T16:14:23+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-06-06</span>
         
         <br />
         创建日期:

@@ -12,27 +12,27 @@
         <meta name="author" content="gis-xh">
       
       
-        <link rel="canonical" href="https://gis-xh.github.io/gis-rs-python-notes/gee/gee081/">
+        <link rel="canonical" href="https://gis-xh.github.io/gis-rs-python-notes/open-geo-zh/sam-geo/02geemap_sam/">
       
       
-        <link rel="prev" href="../geemap06/">
+        <link rel="prev" href="../01index/">
       
       
-        <link rel="next" href="../../open-geo-zh/">
+        <link rel="next" href="../../../gee/demo05/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>7 未完成 - GIS&RS 学习站</title>
+        <title>2 geemap + samgeo 示例 - GIS&RS 学习站</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -48,13 +48,13 @@
       
     
     
-      <link rel="stylesheet" href="../../css/timeago.css">
+      <link rel="stylesheet" href="../../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../mkdocs/css/unordered-list-symbols.css">
+      <link rel="stylesheet" href="../../../mkdocs/css/unordered-list-symbols.css">
     
-      <link rel="stylesheet" href="../../mkdocs/css/img-center.css">
+      <link rel="stylesheet" href="../../../mkdocs/css/img-center.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -73,7 +73,7 @@
     
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
@@ -84,7 +84,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gee" class="md-skip">
+        <a href="#geemap-samgeo" class="md-skip">
           跳转至
         </a>
       
@@ -120,7 +120,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="GIS&amp;RS 学习站" class="md-header__button md-logo" aria-label="GIS&RS 学习站" data-md-component="logo">
+    <a href="../../.." title="GIS&amp;RS 学习站" class="md-header__button md-logo" aria-label="GIS&RS 学习站" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -139,7 +139,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7 未完成
+              2 geemap + samgeo 示例
             
           </span>
         </div>
@@ -243,8 +243,6 @@
         
   
   
-    
-  
 
 
   
@@ -256,7 +254,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../gee_tips/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../gee/gee_tips/" class="md-tabs__link">
         Google Earth Engine
       </a>
     </li>
@@ -268,13 +266,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../open-geo-zh/" class="md-tabs__link">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         open-geo 教程
       </a>
     </li>
@@ -290,7 +290,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../demo05/" class="md-tabs__link">
+      <a href="../../../gee/demo05/" class="md-tabs__link">
         其他
       </a>
     </li>
@@ -318,7 +318,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="GIS&amp;RS 学习站" class="md-nav__button md-logo" aria-label="GIS&RS 学习站" data-md-component="logo">
+    <a href="../../.." title="GIS&amp;RS 学习站" class="md-nav__button md-logo" aria-label="GIS&RS 学习站" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -347,16 +347,16 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
       
       
         
@@ -371,7 +371,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Google Earth Engine
@@ -423,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gee_tips/" class="md-nav__link">
+      <a href="../../../gee/gee_tips/" class="md-nav__link">
         GEE 小技巧
       </a>
     </li>
@@ -437,7 +437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gee01/" class="md-nav__link">
+      <a href="../../../gee/gee01/" class="md-nav__link">
         1 获取遥感影像
       </a>
     </li>
@@ -451,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gee02/" class="md-nav__link">
+      <a href="../../../gee/gee02/" class="md-nav__link">
         2 遥感图像的基本计算
       </a>
     </li>
@@ -465,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gee03/" class="md-nav__link">
+      <a href="../../../gee/gee03/" class="md-nav__link">
         3 GEE Python API
       </a>
     </li>
@@ -484,16 +484,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_2" >
       
       
         
@@ -520,7 +520,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_2">
           <span class="md-nav__icon md-icon"></span>
           Geemap 教程
@@ -533,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap_tips/" class="md-nav__link">
+      <a href="../../../gee/geemap_tips/" class="md-nav__link">
         Geemap 小技巧
       </a>
     </li>
@@ -547,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap01/" class="md-nav__link">
+      <a href="../../../gee/geemap01/" class="md-nav__link">
         1 Geemap 包的介绍
       </a>
     </li>
@@ -561,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap02/" class="md-nav__link">
+      <a href="../../../gee/geemap02/" class="md-nav__link">
         2 Landsat 时序延时动画
       </a>
     </li>
@@ -575,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap03/" class="md-nav__link">
+      <a href="../../../gee/geemap03/" class="md-nav__link">
         3 无限制下载 GEE 数据
       </a>
     </li>
@@ -589,7 +589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap04/" class="md-nav__link">
+      <a href="../../../gee/geemap04/" class="md-nav__link">
         4 长江流域降雨量可视化
       </a>
     </li>
@@ -603,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap05/" class="md-nav__link">
+      <a href="../../../gee/geemap05/" class="md-nav__link">
         5 长江流域水量平衡可视化(未完成)
       </a>
     </li>
@@ -617,8 +617,131 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap06/" class="md-nav__link">
+      <a href="../../../gee/geemap06/" class="md-nav__link">
         6 农作物分类可视化分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gee/gee081/" class="md-nav__link">
+        7 未完成
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">open-geo 教程</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          open-geo 教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          samgeo 教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          samgeo 教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01index/" class="md-nav__link">
+        1 基本介绍
       </a>
     </li>
   
@@ -641,12 +764,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          7 未完成
+          2 geemap + samgeo 示例
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        7 未完成
+        2 geemap + samgeo 示例
       </a>
       
         
@@ -666,14 +789,123 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    相关参考
+    前言
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1 数据导入
+    1 相关介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="1 相关介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-segment-anything" class="md-nav__link">
+    1.1 Segment Anything
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-segment-geospatial" class="md-nav__link">
+    1.2 Segment-geospatial
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2 环境配置
+  </a>
+  
+    <nav class="md-nav" aria-label="2 环境配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 安装相关包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 基本配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3 编程实现
+  </a>
+  
+    <nav class="md-nav" aria-label="3 编程实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 加载本地栅格数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 提取分割腌膜
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 开始训练模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 地图可视化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-qgis" class="md-nav__link">
+    3.5 在 QGIS 中查看数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参考文献
   </a>
   
 </li>
@@ -682,129 +914,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../open-geo-zh/">open-geo 教程</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          open-geo 教程
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-          samgeo 教程
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          samgeo 教程
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../open-geo-zh/sam-geo/01index/" class="md-nav__link">
-        1 基本介绍
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../open-geo-zh/sam-geo/02geemap_sam/" class="md-nav__link">
-        2 geemap + samgeo 示例
-      </a>
     </li>
   
 
@@ -864,7 +973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../demo05/" class="md-nav__link">
+      <a href="../../../gee/demo05/" class="md-nav__link">
         还没用上 ChatGPT？那快试试全网通的 New Bing 吧！
       </a>
     </li>
@@ -906,14 +1015,123 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    相关参考
+    前言
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1 数据导入
+    1 相关介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="1 相关介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-segment-anything" class="md-nav__link">
+    1.1 Segment Anything
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-segment-geospatial" class="md-nav__link">
+    1.2 Segment-geospatial
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2 环境配置
+  </a>
+  
+    <nav class="md-nav" aria-label="2 环境配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 安装相关包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 基本配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3 编程实现
+  </a>
+  
+    <nav class="md-nav" aria-label="3 编程实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 加载本地栅格数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 提取分割腌膜
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 开始训练模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 地图可视化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-qgis" class="md-nav__link">
+    3.5 在 QGIS 中查看数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参考文献
   </a>
   
 </li>
@@ -940,89 +1158,123 @@
   
 
 
-<h1 id="gee">GEE 教程（七）：监督分类与精度评价<a class="headerlink" href="#gee" title="Permanent link">&para;</a></h1>
-<h2 id="_1">相关参考<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://geemap.org/notebooks/33_accuracy_assessment/">吴秋生 Geemap 教程 | 33 ML 与 GEE - 准确性评估</a></li>
-</ul>
-<p>利用geemap先按照日期、云量和区域进行筛选S2_SR_HARMONIZED影像集合，然后合并成单一影像，再根据这个影像与本地采集好的shp格式的土地覆盖分类样本，进行监督分类，你可以给我写一个示例demo吗？（用markdown回答）</p>
-<h2 id="1">1 数据导入<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">s2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR_HARMONIZED&#39;</span><span class="p">)</span>
-<span class="n">louang_namtha</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="s1">&#39;projects/ee-evolto/assets/louang_namtha&#39;</span><span class="p">)</span>
-<span class="c1"># 导入制作好的训练数据集</span>
-<span class="n">louang_namtha_sample</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">shp_to_ee</span><span class="p">(</span><span class="s2">&quot;E:/researchData/laos/sample/louang_namtha_sample.shp&quot;</span><span class="p">)</span>
+<h1 id="geemap-samgeo">Geemap 特别篇：分割一切！SamGeo 实现快速矢量化<a class="headerlink" href="#geemap-samgeo" title="Permanent link">&para;</a></h1>
+<h2 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>&emsp;&emsp;本文是 Geemap 教程的特别篇，针对目前较为火热的 Segment Anything Model (SAM) 分割一切模型，介绍如何通过 Geemap 与 Segment-geospatial 包的结合使用，实现对本地超高分辨率的栅格数据的快速分割提取，最终得到 shapefile 格式的矢量数据。</p>
+<p>&emsp;&emsp;Segment-geospatial 是 Geemap 包的作者吴秋生老师基于 SAM 分割一切模型开发的一个对地理空间数据进行快速分割的 Python 包，可以根据感兴趣区域高分辨率影像快速有效地提取矢量边界。</p>
+<h2 id="1">1 相关介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11-segment-anything">1.1 Segment Anything<a class="headerlink" href="#11-segment-anything" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;Segment Anything 是 Meta AI 研究的一个新项目，它提出了一种新的图像分割任务、模型和数据集。Segment Anything Model (SAM) 是一个可以根据输入提示（如点或框）产生高质量的对象掩码的模型，它还可以用于生成图像中所有对象的掩码。SAM 在一个包含 1100 万张图像和 10 亿多个掩码的大规模数据集上进行了训练，具有强大的零样本泛化能力，可以应对各种分割任务。SAM 的设计和训练还使得它可以被提示，即可以根据不同的输入提示转移到新的图像分布和任务上，而无需额外的训练。</p>
+<h3 id="12-segment-geospatial">1.2 Segment-geospatial<a class="headerlink" href="#12-segment-geospatial" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;Segment-geospatial (samgeo) 是一个开源的 Python 包，旨在简化使用 Segment Anything 模型分割地理空间数据的过程。该包利用流行的 Python 库，如 <code>leafmap</code>、<code>ipywidgets</code>、<code>rasterio</code>、<code>geopandas</code> 和 <code>segment-anything-py</code>，为用户提供了一个简单的界面，以分割和遥感图像，并以各种格式导出结果，包括矢量和栅格数据。它还提供了在 Jupyter 环境中交互式下载遥感图像和可视化分割结果的功能。Segment-Geospatial 旨在通过提供一个用户友好、高效和灵活的地理空间分割工具来填补 Python 生态系统中的空白，而不需要训练深度学习模型。</p>
+<h2 id="2">2 环境配置<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>&emsp;&emsp;由于国内镜像源与官方镜像源对包的版本更新存在延迟，所以这里我们使用官方镜像源（https://pypi.python.org/simple） 进行安装和升级。</p>
+<h3 id="21">2.1 安装相关包<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>更新 Geemap 包</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>geemap<span class="w"> </span>-i<span class="w"> </span>https://pypi.python.org/simple
 </code></pre></div></td></tr></table></div>
-<p><a href="https://blog.csdn.net/qq_35591253/article/details/129176469">GEE：样本点选择教程_gee选取样本点__养乐多_的博客-CSDN博客</a></p>
-<p>从2022年1月1日到2022年12月31日的时间范围内筛选s2数据集，筛选出云覆盖率小于20%的影像，筛选出包含louang_namtha区域的影像，对每个影像应用maskS2clouds函数，去除云层，选择波段1到8的数据</p>
+<blockquote>
+<p>安装 Segment-geospatial 包</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>segment-geospatial<span class="w"> </span>-i<span class="w"> </span>https://pypi.python.org/simple
+</code></pre></div></td></tr></table></div>
+<h3 id="22">2.2 基本配置<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;除每次编译时在头部固定所需导入的包，这次我们还需要再导入刚刚安装的 Segment-geospatial 包。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 定义使用的哨兵影像数据</span>
-<span class="n">collection</span> <span class="o">=</span> <span class="n">s2</span><span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">&#39;2022-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-31&#39;</span><span class="p">)</span> \
-              <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="s1">&#39;CLOUDY_PIXEL_PERCENTAGE&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span> \
-              <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">louang_namtha</span><span class="p">)</span> \
-              <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">maskS2clouds</span><span class="p">)</span> \
-              <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;B[1-8]&#39;</span><span class="p">)</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>import os
+import ee
+import geemap
+ee.Initialize()
+geemap.set_proxy(port=&quot;魔法工具的端口号&quot;)
+from samgeo import SamGeo
 </code></pre></div></td></tr></table></div>
-<table>
-<thead>
-<tr>
-<th align="center">类别编号</th>
-<th align="center">类别名称</th>
-<th align="center">验证整体 producers 准确率</th>
-<th align="center">验证整体 consumers 准确率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">1</td>
-<td align="center">agricultural</td>
-<td align="center">0.985838779956427</td>
-<td align="center">0.9546413502109705</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">building</td>
-<td align="center">0.9258426966292135</td>
-<td align="center">0.9832935560859188</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">human forest</td>
-<td align="center">0.8943338437978561</td>
-<td align="center">0.9931972789115646</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">nature forest</td>
-<td align="center">0.9998959154238473</td>
-<td align="center">0.9986708348493737</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center">road</td>
-<td align="center">0.9856565666666666</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">6</td>
-<td align="center">water</td>
-<td align="center">0.9176755447941889</td>
-<td align="center">0.9869791666666666</td>
-</tr>
-<tr>
-<td align="center">整体</td>
-<td align="center"></td>
-<td align="center">验证准确性: 0.9982415091049136</td>
-<td align="center">验证整体 kappa 准确率: 0.959480023905596</td>
-</tr>
-</tbody>
-</table>
+<p>&emsp;&emsp;输入以下命令可以查看当前环境的 geemap 工作环境。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>geemap.Report<span class="o">()</span>
+</code></pre></div></td></tr></table></div>
+<p><a class="glightbox" href="../img/image-20230603133018752.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230603133018752" src="../img/image-20230603133018752.png" /></a></p>
+<p><center>图 2-1 当前 Geemap 工作环境</center></p>
+<h2 id="3">3 编程实现<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 加载本地栅格数据<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;首先，我们在以谷歌卫星影像为底图，使用 <code>add_raster()</code> 函数，读取本地已经下载好的超高分辨率影像数据，并显示在地图上。这是一种基于 <code>localtileserver</code> 包，以在本地发布栅格数据的形式，将影像显示在地图上，这里并没有与 GEE 平台进行交互，而且全程在本地上进行的。</p>
+<p>Tips：请不要将魔法工具设为全局模式，否则栅格数据会由于无法发布在本地服务器导致不能正常加载。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">basemap</span><span class="o">=</span><span class="s2">&quot;SATELLITE&quot;</span><span class="p">)</span>
+<span class="n">point</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mf">114.024938132</span><span class="p">,</span> <span class="mf">30.532181687</span><span class="p">)</span>
+<span class="n">yangtzeu</span> <span class="o">=</span> <span class="s2">&quot;../data/tif/yangtzeu_wh_L17.tif&quot;</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">Map</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">yangtzeu</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;长江大学武汉校区&quot;</span><span class="p">))</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">centerObject</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">Map</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="32">3.2 提取分割腌膜<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">sam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>SamGeo<span class="o">(</span>
+<span class="w">    </span><span class="nv">model_type</span><span class="o">=</span><span class="s2">&quot;vit_h&quot;</span>,
+<span class="w">    </span><span class="nv">checkpoint</span><span class="o">=</span><span class="s2">&quot;sam_vit_h_4b8939.pth&quot;</span>,
+<span class="w">    </span><span class="nv">device</span><span class="o">=</span>None,
+<span class="w">    </span><span class="nv">sam_kwargs</span><span class="o">=</span>None,
+<span class="o">)</span>
+
+<span class="nv">out_mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>os.path.join<span class="o">(</span>tif_dir,<span class="w"> </span><span class="s2">&quot;yangtzeu_wh_masks.tif&quot;</span><span class="o">)</span>
+
+sam.generate<span class="o">(</span>yangtzeu,<span class="w"> </span>out_mask,<span class="w"> </span><span class="nv">foreground</span><span class="o">=</span>True,<span class="w"> </span><span class="nv">unique</span><span class="o">=</span>True<span class="o">)</span>
+
+sam.show_masks<span class="o">(</span><span class="nv">cmap</span><span class="o">=</span><span class="s2">&quot;binary_r&quot;</span><span class="o">)</span>
+
+<span class="nv">out_annotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>os.path.join<span class="o">(</span>tif_dir,<span class="w"> </span><span class="s2">&quot;yangtzeu_wh_annotations.tif&quot;</span><span class="o">)</span>
+
+sam.show_anns<span class="o">(</span><span class="nv">axis</span><span class="o">=</span><span class="s2">&quot;off&quot;</span>,<span class="w"> </span><span class="nv">alpha</span><span class="o">=</span><span class="m">1</span>,<span class="w"> </span><span class="nv">output</span><span class="o">=</span>out_annotation<span class="o">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="33">3.3 开始训练模型<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">sam</span><span class="o">.</span><span class="n">tiff_to_vector</span><span class="p">(</span><span class="n">out_mask</span><span class="p">,</span> <span class="n">out_mask_shp</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="34">3.4 地图可视化<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;color&quot;</span>:<span class="w"> </span><span class="s2">&quot;#3388ff&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;weight&quot;</span>:<span class="w"> </span><span class="m">2</span>,
+<span class="w">    </span><span class="s2">&quot;fillColor&quot;</span>:<span class="w"> </span><span class="s2">&quot;#7c4185&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;fillOpacity&quot;</span>:<span class="w"> </span><span class="m">0</span>.5,
+<span class="o">}</span>
+Map.add_vector<span class="o">(</span>out_mask_shp,<span class="w"> </span><span class="nv">layer_name</span><span class="o">=</span><span class="s2">&quot;Vector&quot;</span>,<span class="w"> </span><span class="nv">style</span><span class="o">=</span>style<span class="o">)</span>
+Map
+</code></pre></div></td></tr></table></div>
+<h3 id="35-qgis">3.5 在 QGIS 中查看数据<a class="headerlink" href="#35-qgis" title="Permanent link">&para;</a></h3>
+<h2 id="_2">总结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">参考文献<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>[1] Kirillov A, Mintun E, Ravi N, et al. Segment Anything[J]. arXiv:2304.02643, 2023.</p>
+<p>[2] Wu, Q., (2020). geemap: A Python package for interactive mapping with Google Earth Engine. The Journal of Open Source Software, 5(51), 2305. https://doi.org/10.21105/joss.02305</p>
+<p>[3] 135 segmentation - geemap [EB/OL]. https://geemap.org/notebooks/135_segmentation/. [2023-06-03].</p>
+<p>[4] Qiusheng Wu, &amp; Lucas Osco. (2023). samgeo: A Python package for segmenting geospatial data with the Segment Anything Model (SAM). Zenodo. https://doi.org/10.5281/zenodo.7966658</p>
 
   
 
@@ -1036,11 +1288,11 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         <!-- mkdocs-git-revision-date-localized-plugin -->
         
         最后更新:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-05-20T21:40:30+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-20</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-06-06T16:14:23+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-06-06</span>
         
         <br />
         创建日期:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-25T09:55:57+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-25</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-06-06T16:14:23+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-06-06</span>
         
 
         <!-- mkdocs-git-revision-date-plugin -->
@@ -1128,7 +1380,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../geemap06/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 6 农作物分类可视化分析" rel="prev">
+          <a href="../01index/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 1 基本介绍" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1137,20 +1389,20 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 上一页
               </span>
               <div class="md-ellipsis">
-                6 农作物分类可视化分析
+                1 基本介绍
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../open-geo-zh/" class="md-footer__link md-footer__link--next" aria-label="下一页: 开源地理信息教程" rel="next">
+          <a href="../../../gee/demo05/" class="md-footer__link md-footer__link--next" aria-label="下一页: 还没用上 ChatGPT？那快试试全网通的 New Bing 吧！" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                开源地理信息教程
+                还没用上 ChatGPT？那快试试全网通的 New Bing 吧！
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1198,16 +1450,16 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.indexes", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.indexes", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
-        <script src="../../js/timeago.min.js"></script>
+        <script src="../../../js/timeago.min.js"></script>
       
-        <script src="../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../mkdocs/js/mathjax.js"></script>
+        <script src="../../../mkdocs/js/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

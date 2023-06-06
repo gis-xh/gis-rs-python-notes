@@ -21,7 +21,7 @@
         <link rel="next" href="../geemap01/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
@@ -29,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -601,6 +601,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#6-python" class="md-nav__link">
+    6 Python 原始镜像源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7 查看当前环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8 环境配置
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -744,12 +765,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../open-geo-zh/">open-geo 教程</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -760,6 +787,76 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          samgeo 教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          samgeo 教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-geo-zh/sam-geo/01index/" class="md-nav__link">
+        1 基本介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-geo-zh/sam-geo/02geemap_sam/" class="md-nav__link">
+        2 geemap + samgeo 示例
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
             
           
         </ul>
@@ -884,6 +981,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#6-python" class="md-nav__link">
+    6 Python 原始镜像源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7 查看当前环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8 环境配置
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -947,6 +1065,25 @@
 <p>基于当前文件克隆出虚拟环境</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>geemap01.yaml
 </code></pre></div></td></tr></table></div>
+<h3 id="6-python">6 Python 原始镜像源<a class="headerlink" href="#6-python" title="Permanent link">&para;</a></h3>
+<p>使用原始镜像源更新</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>geemap<span class="w"> </span>-i<span class="w"> </span>https://pypi.python.org/simple
+</code></pre></div></td></tr></table></div>
+<h3 id="7">7 查看当前环境<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>geemap.Report()
+</code></pre></div></td></tr></table></div>
+<p><a class="glightbox" href="../img/image-20230527164356663.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230527164356663" src="../img/image-20230527164356663.png" /></a></p>
+<h3 id="8">8 环境配置<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<p>考虑到各个包的复杂依赖环境，我们可以使用mamba库进行虚拟环境的配置。</p>
+<p>首先，给基础虚拟环境安装 mamba 库</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>-n<span class="w"> </span>base<span class="w"> </span>mamba<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-y
+</code></pre></div></td></tr></table></div>
+<p>然后，就可以使用 mamba 创建虚拟环境</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>geemap02<span class="w">  </span>pygis<span class="w"> </span>rasterio<span class="w"> </span>leafmap<span class="w"> </span>geopandas<span class="w"> </span>localtileserver<span class="w"> </span>segment-geospatial<span class="w"> </span>geemap<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9<span class="w"> </span>-c<span class="w"> </span>conda-forge
+</code></pre></div></td></tr></table></div>
+<p>如果环境出现问题，可以使用移除命令移除。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>remove<span class="w"> </span>-n<span class="w"> </span>geemap02<span class="w"> </span>--all
+</code></pre></div></td></tr></table></div>
 
   
 
@@ -960,7 +1097,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         <!-- mkdocs-git-revision-date-localized-plugin -->
         
         最后更新:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-05-20T21:40:30+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-20</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-06-06T16:14:23+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-06-06</span>
         
         <br />
         创建日期:
