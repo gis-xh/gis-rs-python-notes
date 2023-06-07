@@ -15,45 +15,9 @@
 
 pypi | GDAL 官网：https://pypi.org/project/GDAL/
 
-### 1.1 安装核心组件
-
-首先，我们需要在系统中先安装好 GDAL 的核心组件（安装核心组件会将 GDAL 所需的 C++ 运行环境一并安装好），在官网上找到 `gdal-****-x64-core.msi` 点击即可下载安装包。![image-20230426194142873](./img/image-20230426194142873.png)
-
-<center>图 1-1 GDAL 官网下载</center>
-
-![image-20230426194359134](./img/image-20230426194359134.png)
-
-<center>图 1-2 安装 GDAL 核心组件</center>
-
-### 1.2 配置环境变量
-
-安装完成后，GDAL 默认安装在 `C:\Program Files\GDAL` 目录下，为了方便使用 GDAL，我们需要进行两步环境变量配置操作。
-
-1、首先，将核心组件的位置添加在 PATH 环境变量中
-
-```
-C:\Program Files\GDAL\
-```
-
-![image-20230426195929718](./img/image-20230426195929718.png)
-
-<center>图 1-3 添加环境变量</center>
-
-2、然后创建一个新的变量 `GDAL_DATA`，并设置变量值为：
-
-```
-C:\Program Files\GDAL\gdal-data
-```
-
-![image-20230426200113702](./img/image-20230426200113702.png)
-
-<center>图 1-4 配置 GDAL_DATA 变量</center>
 
 
-
-
-
-### 1.3 可能遇到的问题
+### 1.1 可能遇到的问题
 
 
 安装 GDAL 库时出现：

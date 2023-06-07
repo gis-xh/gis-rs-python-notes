@@ -66,13 +66,14 @@ nav:
       - 3 无限制下载 GEE 数据: gee/geemap03.md
       - 4 长江流域降雨量可视化: gee/geemap04.md
       - 5 长江流域水量平衡可视化(未完成): gee/geemap05.md
-      - 6 农作物分类可视化分析: gee/geemap06.md
+      - 6 农作物分类可视化分析(未完成): gee/geemap06.md
       - 7 未完成: gee/gee081.md
   - open-geo 教程: 
     - open-geo-zh/index.md
     - samgeo 教程:
       - 1 基本介绍: open-geo-zh/sam-geo/01index.md
-      - 2 geemap + samgeo 示例: open-geo-zh/sam-geo/02geemap_sam.md
+      - 2 samgeo + geemap 示例: open-geo-zh/sam-geo/02geemap_sam.md
+      - 3 samgeo + leafmap 示例: open-geo-zh/sam-geo/02sam_YU.md
   - 其他:
     - 还没用上 ChatGPT？那快试试全网通的 New Bing 吧！: gee/demo05.md
 
