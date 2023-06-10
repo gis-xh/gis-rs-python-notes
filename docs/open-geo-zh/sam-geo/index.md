@@ -4,11 +4,11 @@
 
 ## 基本介绍
 
-&emsp;&emsp;leafmap：由于并非地理空间社区中的每个人都可以访问 GEE 云计算平台。Leafmap 旨在为非 GEE 用户填补这一空白。它是一个免费的开源 Python 包，使用户能够在 Jupyter 环境（例如 Google Colab、Jupyter Notebook 和 JupyterLab）中以最少的编码分析和可视化地理空间数据。
+&emsp;&emsp;segment-geospatial 包的灵感来自[Aliaksandr Hancharenka](https://github.com/aliaksandr960)编写的[segment-anything-eo](https://github.com/aliaksandr960/segment-anything-eo)存储库。为了便于将 Segment Anything Model (SAM) 用于地理空间数据，吴秋生老师开发了[segment-anything-py](https://github.com/opengeos/segment-anything)和[segment-geospatial](https://github.com/opengeos/segment-geospatial) Python 包，现在可在 PyPI 和 conda-forge 上使用。主要目标是简化利用 SAM 进行地理空间数据分析的过程，让用户能够以最少的编码工作实现这一点。吴秋生老师从 [segment-anything-eo](https://github.com/aliaksandr960/segment-anything-eo) 存储库中改编了 segment-geospatial 的源代码，其原始版本归功于 Aliaksandr Hancharenka。
 
-- 官网：https://leafmap.org/
+- 官网：https://samgeo.gishub.org/
 
-- GitHub：https://github.com/opengeos/leafmap
+- GitHub：https://github.com/opengeos/segment-geospatial
 
 
 

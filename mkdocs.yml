@@ -71,9 +71,8 @@ nav:
   - open-geo 教程: 
     - open-geo-zh/index.md
     - samgeo 教程:
-      - 1 基本介绍: open-geo-zh/sam-geo/01index.md
-      - 2 samgeo + geemap 示例: open-geo-zh/sam-geo/02geemap_sam.md
-      - 3 samgeo + leafmap 示例: open-geo-zh/sam-geo/02sam_YU.md
+      - open-geo-zh/sam-geo/index.md
+      - 1 samgeo + leafmap 示例: open-geo-zh/sam-geo/01sam_YU.md
   - 其他:
     - 还没用上 ChatGPT？那快试试全网通的 New Bing 吧！: gee/demo05.md
 
@@ -81,7 +80,6 @@ nav:
 # [Extensions] 扩展
 plugins:
   - search:
-    # insider已经支持中文的分词搜索了 https://squidfunk.github.io/mkdocs-material/blog/2022/chinese-search-support/
       lang:
         - en
         - ja
