@@ -12,20 +12,20 @@
         <meta name="author" content="gis-xh">
       
       
-        <link rel="canonical" href="https://gis-xh.github.io/gis-rs-python-notes/open-geo-zh/sam-geo/02geemap_sam/">
+        <link rel="canonical" href="https://gis-xh.github.io/gis-rs-python-notes/open-geo-zh/sam-geo/01sam_YU/">
       
       
-        <link rel="prev" href="../01index/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../02sam_YU/">
+        <link rel="next" href="../../../gee/demo05/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>2 samgeo + geemap 示例 - GIS&RS 学习站</title>
+        <title>1 samgeo + leafmap 示例 - GIS&RS 学习站</title>
       
     
     
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#geemap-samgeo" class="md-skip">
+        <a href="#sam" class="md-skip">
           跳转至
         </a>
       
@@ -139,7 +139,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2 samgeo + geemap 示例
+              1 samgeo + leafmap 示例
             
           </span>
         </div>
@@ -717,17 +717,23 @@
       
         
           
-        
+            
           
         
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-          samgeo 教程
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">samgeo 教程</a>
+          
+            <label for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_2">
@@ -736,18 +742,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../01index/" class="md-nav__link">
-        1 基本介绍
-      </a>
-    </li>
-  
-
             
           
             
@@ -766,12 +760,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2 samgeo + geemap 示例
+          1 samgeo + leafmap 示例
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        2 samgeo + geemap 示例
+        1 samgeo + leafmap 示例
       </a>
       
         
@@ -805,8 +799,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-segment-anything" class="md-nav__link">
-    1.1 Segment Anything
+  <a href="#11-segment-anything-model" class="md-nav__link">
+    1.1 Segment Anything Model
   </a>
   
 </li>
@@ -814,6 +808,13 @@
           <li class="md-nav__item">
   <a href="#12-segment-geospatial" class="md-nav__link">
     1.2 Segment-geospatial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-leafmap" class="md-nav__link">
+    1.3 Leafmap
   </a>
   
 </li>
@@ -833,14 +834,21 @@
         
           <li class="md-nav__item">
   <a href="#21" class="md-nav__link">
-    2.1 安装相关包
+    2.1 创建虚拟环境
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#22" class="md-nav__link">
-    2.2 基本配置
+    2.2 检查环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-cuda" class="md-nav__link">
+    2.3 安装 CUDA 支持
   </a>
   
 </li>
@@ -860,35 +868,62 @@
         
           <li class="md-nav__item">
   <a href="#31" class="md-nav__link">
-    3.1 加载本地栅格数据
+    3.1 基本配置
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#32" class="md-nav__link">
-    3.2 提取分割腌膜
+    3.2 下载并显示地图瓦片
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    3.3 开始训练模型
+  <a href="#33-sam" class="md-nav__link">
+    3.3 初始化 SAM 类
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#34" class="md-nav__link">
-    3.4 地图可视化
+    3.4 分割影像
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#35-qgis" class="md-nav__link">
-    3.5 在 QGIS 中查看数据
+  <a href="#35" class="md-nav__link">
+    3.5 矢量化栅格数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4 分割结果
+  </a>
+  
+    <nav class="md-nav" aria-label="4 分割结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 地图可视化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-qgis" class="md-nav__link">
+    4.2 在 QGIS 中查看数据
   </a>
   
 </li>
@@ -916,20 +951,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../02sam_YU/" class="md-nav__link">
-        3 samgeo + leafmap 示例
-      </a>
     </li>
   
 
@@ -1045,8 +1066,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-segment-anything" class="md-nav__link">
-    1.1 Segment Anything
+  <a href="#11-segment-anything-model" class="md-nav__link">
+    1.1 Segment Anything Model
   </a>
   
 </li>
@@ -1054,6 +1075,13 @@
           <li class="md-nav__item">
   <a href="#12-segment-geospatial" class="md-nav__link">
     1.2 Segment-geospatial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-leafmap" class="md-nav__link">
+    1.3 Leafmap
   </a>
   
 </li>
@@ -1073,14 +1101,21 @@
         
           <li class="md-nav__item">
   <a href="#21" class="md-nav__link">
-    2.1 安装相关包
+    2.1 创建虚拟环境
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#22" class="md-nav__link">
-    2.2 基本配置
+    2.2 检查环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-cuda" class="md-nav__link">
+    2.3 安装 CUDA 支持
   </a>
   
 </li>
@@ -1100,35 +1135,62 @@
         
           <li class="md-nav__item">
   <a href="#31" class="md-nav__link">
-    3.1 加载本地栅格数据
+    3.1 基本配置
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#32" class="md-nav__link">
-    3.2 提取分割腌膜
+    3.2 下载并显示地图瓦片
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    3.3 开始训练模型
+  <a href="#33-sam" class="md-nav__link">
+    3.3 初始化 SAM 类
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#34" class="md-nav__link">
-    3.4 地图可视化
+    3.4 分割影像
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#35-qgis" class="md-nav__link">
-    3.5 在 QGIS 中查看数据
+  <a href="#35" class="md-nav__link">
+    3.5 矢量化栅格数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4 分割结果
+  </a>
+  
+    <nav class="md-nav" aria-label="4 分割结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 地图可视化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-qgis" class="md-nav__link">
+    4.2 在 QGIS 中查看数据
   </a>
   
 </li>
@@ -1174,100 +1236,212 @@
   
 
 
-<h1 id="geemap-samgeo">Geemap 特别篇：分割一切！SamGeo 实现快速矢量化<a class="headerlink" href="#geemap-samgeo" title="Permanent link">&para;</a></h1>
+<h1 id="sam">开源地理信息教程（一）分割一切！SAM与遥感影像的结合试验<a class="headerlink" href="#sam" title="Permanent link">&para;</a></h1>
 <h2 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>&emsp;&emsp;本文是 Geemap 教程的特别篇，针对目前较为火热的 Segment Anything Model (SAM) 分割一切模型，介绍如何通过 Geemap 与 Segment-geospatial 包的结合使用，实现对本地超高分辨率的栅格数据的快速分割提取，最终得到 shapefile 格式的矢量数据。</p>
-<p>&emsp;&emsp;Segment-geospatial 是 Geemap 包的作者吴秋生老师基于 SAM 分割一切模型开发的一个对地理空间数据进行快速分割的 Python 包，可以根据感兴趣区域高分辨率影像快速有效地提取矢量边界。</p>
+<p>&emsp;&emsp;由于 GEE 平台的使用限制不断加增多，尽管有 Geemap 这样优秀的第三方包，但还是存在诸多限制，于是笔者决定另辟蹊径，结合诸多开源的地理信息项目，制作一个开源地理信息教程系列。本系列将会分享 Github 开源的地理信息相关项目、开放地理数据下载、以及新兴技术在地理信息产业上运用。</p>
+<p>&emsp;&emsp;本文作为新系列的第一篇教程，针对目前较为火热的 Segment Anything Model (SAM) 分割一切模型，介绍如何通过 Segment-geospatial 包的使用，实现对本地超高分辨率的栅格数据的快速分割提取，最终得到 shapefile 格式的矢量数据。</p>
+<p>&emsp;&emsp;在本篇教程中，你将学习到以下内容：</p>
+<table>
+<thead>
+<tr>
+<th align="left">内容</th>
+<th align="left">方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">GEE 平台的平替产品</td>
+<td align="left">使用 <code>leafmap</code> 包</td>
+</tr>
+<tr>
+<td align="left">SAM 模型在地理上的运用</td>
+<td align="left">使用 <code>segment-geospatial</code> 包</td>
+</tr>
+<tr>
+<td align="left">下载底图的地图切片</td>
+<td align="left">使用 <code>tms_to_geotiff()</code> 函数</td>
+</tr>
+<tr>
+<td align="left">加载本地栅格数据</td>
+<td align="left">使用 <code>add_raster()</code> 函数</td>
+</tr>
+</tbody>
+</table>
 <h2 id="1">1 相关介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<h3 id="11-segment-anything">1.1 Segment Anything<a class="headerlink" href="#11-segment-anything" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;Segment Anything 是 Meta AI 研究的一个新项目，它提出了一种新的图像分割任务、模型和数据集。Segment Anything Model (SAM) 是一个可以根据输入提示（如点或框）产生高质量的对象掩码的模型，它还可以用于生成图像中所有对象的掩码。SAM 在一个包含 1100 万张图像和 10 亿多个掩码的大规模数据集上进行了训练，具有强大的零样本泛化能力，可以应对各种分割任务。SAM 的设计和训练还使得它可以被提示，即可以根据不同的输入提示转移到新的图像分布和任务上，而无需额外的训练。</p>
+<h3 id="11-segment-anything-model">1.1 Segment Anything Model<a class="headerlink" href="#11-segment-anything-model" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;<a href="https://github.com/facebookresearch/segment-anything">Segment Anything</a> 是 Meta AI 研究的一个新项目，它提出了一种新的图像分割任务、模型和数据集。Segment Anything Model (SAM) 是一个可以根据输入提示（如点或框）产生高质量的对象掩码的模型，它还可以用于生成图像中所有对象的掩码。SAM 在一个包含 1100 万张图像和 10 亿多个掩码的大规模数据集上进行了训练，具有强大的零样本泛化能力，可以应对各种分割任务。SAM 的设计和训练还使得它可以被提示，即可以根据不同的输入提示转移到新的图像分布和任务上，而无需额外的训练。</p>
+<p><a class="glightbox" href="../img/sam_masks2.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="sam_masks2" src="../img/sam_masks2.jpg" /></a></p>
+<p><center>图 1-1 SAM 分割示例</center></p>
 <h3 id="12-segment-geospatial">1.2 Segment-geospatial<a class="headerlink" href="#12-segment-geospatial" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;Segment-geospatial (samgeo) 是一个开源的 Python 包，旨在简化使用 Segment Anything 模型分割地理空间数据的过程。该包利用流行的 Python 库，如 <code>leafmap</code>、<code>ipywidgets</code>、<code>rasterio</code>、<code>geopandas</code> 和 <code>segment-anything-py</code>，为用户提供了一个简单的界面，以分割和遥感图像，并以各种格式导出结果，包括矢量和栅格数据。它还提供了在 Jupyter 环境中交互式下载遥感图像和可视化分割结果的功能。Segment-Geospatial 旨在通过提供一个用户友好、高效和灵活的地理空间分割工具来填补 Python 生态系统中的空白，而不需要训练深度学习模型。</p>
+<p>&emsp;&emsp;<a href="https://samgeo.gishub.org/">Segment-geospatial</a> 是 Geemap 包的作者吴秋生老师基于 SAM 分割一切模型开发的一个对地理空间数据进行快速分割的开源 Python 包，可以根据感兴趣区域高分辨率影像快速有效地提取矢量边界。</p>
+<p><a class="glightbox" href="../img/Automatic_mask_generator.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Automatic_mask_generator" src="../img/Automatic_mask_generator.gif" /></a></p>
+<p><center>图 1-2 samgeo 分割示例</center></p>
+<h3 id="13-leafmap">1.3 Leafmap<a class="headerlink" href="#13-leafmap" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;<a href="https://leafmap.org/">Leafmap</a> 也是吴秋生老师开发的一个开源 Python 包，使用户能够在 Jupyter 环境（例如 Google Colab、Jupyter Notebook 和 JupyterLab）中以最少的编码分析和可视化地理空间数据，旨在为无法正常访问 GEE 的用户填补空白。</p>
+<p><a class="glightbox" href="../img/leafmap_demo.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="leafmap_demo" src="../img/leafmap_demo.gif" /></a></p>
+<p><center>图 1-3 Leafmap 官方操作演示</center></p>
 <h2 id="2">2 环境配置<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>&emsp;&emsp;由于国内镜像源与官方镜像源对包的版本更新存在延迟，所以这里我们使用官方镜像源（https://pypi.python.org/simple） 进行安装和升级。</p>
-<h3 id="21">2.1 安装相关包<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<h3 id="21">2.1 创建虚拟环境<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;在 <a href="../../../gee/geemap01/">Geemap 教程（一）：Geemap 包的介绍与使用</a> 中，我们曾使用 mamba 库配置过 geemap 的虚拟环境。由于包的复杂依赖环境，如果我们是 Windows 的工作环境，需要使用 mamba 库创建虚拟环境。</p>
 <blockquote>
-<p>更新 Geemap 包</p>
+<p>给基础环境安装 mamba 库</p>
 </blockquote>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>geemap<span class="w"> </span>-i<span class="w"> </span>https://pypi.python.org/simple
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>-n<span class="w"> </span>base<span class="w"> </span>mamba<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-y
 </code></pre></div></td></tr></table></div>
 <blockquote>
-<p>安装 Segment-geospatial 包</p>
+<p>mamba 库安装环境</p>
 </blockquote>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>segment-geospatial<span class="w"> </span>-i<span class="w"> </span>https://pypi.python.org/simple
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>samgeo<span class="w"> </span>segment-geospatial<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9<span class="w"> </span>-c<span class="w"> </span>conda-forge
 </code></pre></div></td></tr></table></div>
-<h3 id="22">2.2 基本配置<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;除每次编译时在头部固定所需导入的包，这次我们还需要再导入刚刚安装的 Segment-geospatial 包。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>import os
-import ee
-import geemap
-ee.Initialize()
-geemap.set_proxy(port=&quot;魔法工具的端口号&quot;)
-from samgeo import SamGeo
+<blockquote>
+<p>激活环境</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>samgeo
 </code></pre></div></td></tr></table></div>
-<p>&emsp;&emsp;输入以下命令可以查看当前环境的 geemap 工作环境。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>geemap.Report<span class="o">()</span>
+<h3 id="22">2.2 检查环境<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;由于 <code>segment-geospatial</code> 包是基于 <code>Pytorch</code> 的环境，为了更好地利用 GPU 的性能训练模型，我们需要安装与当前显卡设备的驱动版本匹配的 CUDA 工具。</p>
+<blockquote>
+<p>检查显卡支持的最高 CUDA 版本</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>nvidia-smi
 </code></pre></div></td></tr></table></div>
-<p><a class="glightbox" href="../img/image-20230603133018752.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230603133018752" src="../img/image-20230603133018752.png" /></a></p>
-<p><center>图 2-1 当前 Geemap 工作环境</center></p>
+<p>&emsp;&emsp;笔者当前电脑显卡驱动最高能支持 CUDA 12.2 版本，具体内容如下。</p>
+<p><a class="glightbox" href="../img/image-20230610173540773.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230610173540773" src="../img/image-20230610173540773.png" /></a></p>
+<p><center>图 2-1 当前显卡信息</center></p>
+<p>&emsp;&emsp;需要注意的是：pip、conda 以及 pytorch 官方都没有给出对 CUDA11.2 版本的支持。但是不用担心，pytorch 对于 CUDA 有很强的支持，我们直接安装其他版本即可。</p>
+<h3 id="23-cuda">2.3 安装 CUDA 支持<a class="headerlink" href="#23-cuda" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>使用 conda 安装 cuda 支持</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span><span class="nv">cudatoolkit</span><span class="o">=</span><span class="m">11</span>.3<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-y
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p>使用 pip 重新安装 Pytorch</p>
+</blockquote>
+<p>&emsp;&emsp;这里需要使用 pip 安装，使用 conda 安装会保持原状，不会重新安装 pytorch。命令参考自：<a href="https://pytorch.org/get-started/previous-versions/">Previous PyTorch Versions | PyTorch</a></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">torch</span><span class="o">==</span><span class="m">1</span>.12.1+cu113<span class="w"> </span><span class="nv">torchvision</span><span class="o">==</span><span class="m">0</span>.13.1+cu113<span class="w"> </span>--extra-index-url<span class="w"> </span>https://download.pytorch.org/whl/cu113
+</code></pre></div></td></tr></table></div>
+<p><a class="glightbox" href="../img/image-20230606201139166.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230606201139166" src="../img/image-20230606201139166.png" /></a></p>
+<p><center>图 2-2 重新安装 Pytorch</center></p>
 <h2 id="3">3 编程实现<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<h3 id="31">3.1 加载本地栅格数据<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;首先，我们在以谷歌卫星影像为底图，使用 <code>add_raster()</code> 函数，读取本地已经下载好的超高分辨率影像数据，并显示在地图上。这是一种基于 <code>localtileserver</code> 包，以在本地发布栅格数据的形式，将影像显示在地图上，这里并没有与 GEE 平台进行交互，而且全程在本地上进行的。</p>
-<p>Tips：请不要将魔法工具设为全局模式，否则栅格数据会由于无法发布在本地服务器导致不能正常加载。</p>
+<h3 id="31">3.1 基本配置<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;与往常一样，我们先导入 leafmap 以及刚刚安装的 Segment-geospatial 包。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>import os
+import leafmap
+from samgeo import SamGeo, tms_to_geotiff
+</code></pre></div></td></tr></table></div>
+<h3 id="32">3.2 下载并显示地图瓦片<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;1、首先，加载谷歌卫星影像为底图，绘制矢量边界，下载矢量边界内的地图切片。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">basemap</span><span class="o">=</span><span class="s2">&quot;SATELLITE&quot;</span><span class="p">)</span>
-<span class="n">point</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mf">114.024938132</span><span class="p">,</span> <span class="mf">30.532181687</span><span class="p">)</span>
-<span class="n">yangtzeu</span> <span class="o">=</span> <span class="s2">&quot;../data/tif/yangtzeu_wh_L17.tif&quot;</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">Map</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">yangtzeu</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;长江大学武汉校区&quot;</span><span class="p">))</span>
-<span class="n">Map</span><span class="o">.</span><span class="n">centerObject</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">point</span> <span class="o">=</span> <span class="p">[</span><span class="mf">30.532181687</span><span class="p">,</span> <span class="mf">114.024938132</span><span class="p">]</span>
+<span class="n">Map</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="n">point</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;SATELLITE&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="32">3.2 提取分割腌膜<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">sam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>SamGeo<span class="o">(</span>
-<span class="w">    </span><span class="nv">model_type</span><span class="o">=</span><span class="s2">&quot;vit_h&quot;</span>,
-<span class="w">    </span><span class="nv">checkpoint</span><span class="o">=</span><span class="s2">&quot;sam_vit_h_4b8939.pth&quot;</span>,
-<span class="w">    </span><span class="nv">device</span><span class="o">=</span>None,
-<span class="w">    </span><span class="nv">sam_kwargs</span><span class="o">=</span>None,
-<span class="o">)</span>
-
-<span class="nv">out_mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>os.path.join<span class="o">(</span>tif_dir,<span class="w"> </span><span class="s2">&quot;yangtzeu_wh_masks.tif&quot;</span><span class="o">)</span>
-
-sam.generate<span class="o">(</span>yangtzeu,<span class="w"> </span>out_mask,<span class="w"> </span><span class="nv">foreground</span><span class="o">=</span>True,<span class="w"> </span><span class="nv">unique</span><span class="o">=</span>True<span class="o">)</span>
-
-sam.show_masks<span class="o">(</span><span class="nv">cmap</span><span class="o">=</span><span class="s2">&quot;binary_r&quot;</span><span class="o">)</span>
-
-<span class="nv">out_annotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>os.path.join<span class="o">(</span>tif_dir,<span class="w"> </span><span class="s2">&quot;yangtzeu_wh_annotations.tif&quot;</span><span class="o">)</span>
-
-sam.show_anns<span class="o">(</span><span class="nv">axis</span><span class="o">=</span><span class="s2">&quot;off&quot;</span>,<span class="w"> </span><span class="nv">alpha</span><span class="o">=</span><span class="m">1</span>,<span class="w"> </span><span class="nv">output</span><span class="o">=</span>out_annotation<span class="o">)</span>
+<p><a class="glightbox" href="../img/image-20230610171355379.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230610171355379" src="../img/image-20230610171355379.png" /></a></p>
+<p><center>图 3-1 加载谷歌影像底图</center></p>
+<p>&emsp;&emsp;2、绘制多边形边界，先检查是否已绘制边界，如果没有就按照指定左上右下角的坐标绘制。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="n">Map</span><span class="o">.</span><span class="n">user_roi_bounds</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">bbox</span> <span class="o">=</span> <span class="n">Map</span><span class="o">.</span><span class="n">user_roi_bounds</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">bbox</span> <span class="o">=</span> <span class="p">[</span><span class="mf">114.018859863</span><span class="p">,</span> <span class="mf">30.540618896</span><span class="p">,</span> <span class="mf">114.030532837</span><span class="p">,</span> <span class="mf">30.526885986</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="33">3.3 开始训练模型<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">sam</span><span class="o">.</span><span class="n">tiff_to_vector</span><span class="p">(</span><span class="n">out_mask</span><span class="p">,</span> <span class="n">out_mask_shp</span><span class="p">)</span>
+<p>&emsp;&emsp;3、指定输出路径，以绘制的多边形为边界，17 级的缩放级别下载地图，如果以存在同名文件则会将其覆盖。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">yangtzeu</span> <span class="o">=</span> <span class="s2">&quot;..</span><span class="se">\\</span><span class="s2">data</span><span class="se">\\</span><span class="s2">tif</span><span class="se">\\</span><span class="s2">yangtzeu_wh_L17.tif&quot;</span>
+<span class="n">tms_to_geotiff</span><span class="p">(</span>
+    <span class="n">output</span><span class="o">=</span><span class="n">yangtzeu</span><span class="p">,</span>
+    <span class="n">bbox</span><span class="o">=</span><span class="n">bbox</span><span class="p">,</span>
+    <span class="n">zoom</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span>
+    <span class="n">resolution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">source</span><span class="o">=</span><span class="s2">&quot;Satellite&quot;</span><span class="p">,</span>
+    <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="34">3.4 地图可视化<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;4、在下载并拼接完影像后，使用 <code>add_raster()</code> 函数加载下载到地图中进行显示。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Map</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">yangtzeu</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;长江大学武汉校区&quot;</span><span class="p">)</span>
+<span class="n">Map</span>
+</code></pre></div></td></tr></table></div>
+<p><a class="glightbox" href="../img/image-20230610171812228.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230610171812228" src="../img/image-20230610171812228.png" /></a></p>
+<p><center>图 3-2 加载下载后的地图切片</center></p>
+<h3 id="33-sam">3.3 初始化 SAM 类<a class="headerlink" href="#33-sam" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">sam</span> <span class="o">=</span> <span class="n">SamGeo</span><span class="p">(</span>
+    <span class="n">model_type</span><span class="o">=</span><span class="s2">&quot;vit_h&quot;</span><span class="p">,</span>
+    <span class="n">checkpoint</span><span class="o">=</span><span class="s2">&quot;sam_vit_h_4b8939.pth&quot;</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cuda&quot;</span><span class="p">,</span>
+    <span class="n">sam_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>&emsp;&emsp;这里我们设置 <code>device="cuda"</code>，以此来调用设备的 GPU 进行运算，其他设置均为默认初始化设置。</p>
+<h3 id="34">3.4 分割影像<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">sam</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+    <span class="n">source</span><span class="o">=</span><span class="n">yangtzeu</span><span class="p">,</span>
+    <span class="n">output</span><span class="o">=</span><span class="n">out_mask</span><span class="p">,</span>
+    <span class="n">foreground</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">batch</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">erosion_kernel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">unique</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>&emsp;&emsp;<code>generate()</code> 函数作为 Samgeo 的核心函数，它将输入图像分割成 mask 掩膜，可以根据需要修改以下三个参数：</p>
+<ul>
+<li>
+<p><code>batch=True</code>: 批量分割图像，这对于无法放入内存的大图像很有用。</p>
+</li>
+<li>
+<p><code>erosion_kernel=None</code>: 过滤对象掩码和提取边界的侵蚀核的参数设置。</p>
+</li>
+<li>
+<p><code>unique=True</code>: 给每个对象分配唯一编码值</p>
+</li>
+</ul>
+<p>&emsp;&emsp;在分割过程中，由于笔记本显卡算力有限，即使图像很小，仍然训练了很长时间，同时机器的占用也很高，Samgeo 在分割影像时，需要较好的显卡设备。</p>
+<p><a class="glightbox" href="../img/image-20230610194446949.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230610194446949" src="../img/image-20230610194446949.png" /></a></p>
+<p><center>图 3-3 分割影像运行中</center></p>
+<p>&emsp;&emsp;然后，我们将分割好的 mask 掩膜显示出来，查看效果。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">sam</span><span class="o">.</span><span class="n">show_masks</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;binary_r&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><a class="glightbox" href="../img/image-20230610204903602.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230610204903602" src="../img/image-20230610204903602.png" /></a></p>
+<p><center>图 3-4 查看分割后的掩膜结果</center></p>
+<h3 id="35">3.5 矢量化栅格数据<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;最后，以栅格转矢量的方式，将掩膜结果转化为矢量格式的文件，就可以得到本次对目标区域影像的分割矢量结果了。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">out_shp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">shp_dir</span><span class="p">,</span> <span class="s2">&quot;yangtzeu_wh.shp&quot;</span><span class="p">)</span>
+<span class="n">sam</span><span class="o">.</span><span class="n">tiff_to_vector</span><span class="p">(</span><span class="n">out_mask</span><span class="p">,</span> <span class="n">out_shp</span><span class="p">,</span> <span class="n">simplify_tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><code>simplify_tolerance</code> 可以对输出矢量数据进行简化，值越大越简化。</li>
+</ul>
+<h2 id="4">4 分割结果<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 地图可视化<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;我们把分割的结果在地图上直接显示，可以看到分割的效果还是不错的。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1284,13 +1458,20 @@ sam.show_anns<span class="o">(</span><span class="nv">axis</span><span class="o"
 Map.add_vector<span class="o">(</span>out_mask_shp,<span class="w"> </span><span class="nv">layer_name</span><span class="o">=</span><span class="s2">&quot;Vector&quot;</span>,<span class="w"> </span><span class="nv">style</span><span class="o">=</span>style<span class="o">)</span>
 Map
 </code></pre></div></td></tr></table></div>
-<h3 id="35-qgis">3.5 在 QGIS 中查看数据<a class="headerlink" href="#35-qgis" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="../img/image-20230610205119009.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230610205119009" src="../img/image-20230610205119009.png" /></a></p>
+<p><center>图 4-1 在地图上查看矢量数据</center></p>
+<h3 id="42-qgis">4.2 在 QGIS 中查看数据<a class="headerlink" href="#42-qgis" title="Permanent link">&para;</a></h3>
+<p>&emsp;&emsp;同样地，我们也可以将下载的谷歌影像数据以及分割后的结果在 QGIS 中加载显示。</p>
+<p><a class="glightbox" href="../img/image-20230610205700737.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230610205700737" src="../img/image-20230610205700737.png" /></a></p>
+<p><center>图 4-2 在 QGIS 中查看数据</center></p>
 <h2 id="_2">总结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>&emsp;&emsp;本篇教程作为开源地理信息教程系列的第一篇教程，以长江大学武汉校区为研究区域，先是利用 Leafmap 包下载谷歌影像切片，再利用 Segment-geospatial 包对下载的影像进行分割，得到分割掩膜，最后以栅格转矢量的方式将结果转换成矢量数据，得到研究区域的矢量化结果。</p>
+<p>&emsp;&emsp;尽管设备算力有限降低了分割的效果，但是可以看到分割结果还是较为不错的，这是 SAM 分割一切模型在遥感领域的一次尝试运用，其目的是希望能够给大家一个<strong>快速、简便、高效</strong>的遥感图像分割方案。本教程只是展示了 SAM 模型的基本功能和使用方法，更多的细节和技巧可以参考 <a href="https://segment-anything.com/">SAM 模型的官方网站</a>和<a href="https://arxiv.org/abs/2304.02643">论文</a>。我们相信 SAM 模型在未来会有更多的应用场景和创新可能，也欢迎大家在评论区分享自己的想法和经验。</p>
 <h2 id="_3">参考文献<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>[1] Kirillov A, Mintun E, Ravi N, et al. Segment Anything[J]. arXiv:2304.02643, 2023.</p>
-<p>[2] Wu, Q., (2020). geemap: A Python package for interactive mapping with Google Earth Engine. The Journal of Open Source Software, 5(51), 2305. https://doi.org/10.21105/joss.02305</p>
-<p>[3] 135 segmentation - geemap [EB/OL]. https://geemap.org/notebooks/135_segmentation/. [2023-06-03].</p>
-<p>[4] Qiusheng Wu, &amp; Lucas Osco. (2023). samgeo: A Python package for segmenting geospatial data with the Segment Anything Model (SAM). Zenodo. https://doi.org/10.5281/zenodo.7966658</p>
+<p>[2] Qiusheng Wu, &amp; Lucas Osco. (2023). samgeo: A Python package for segmenting geospatial data with the Segment Anything Model (SAM). Zenodo. https://doi.org/10.5281/zenodo.7966658</p>
+<p>[3] Wu, Q. (2021). Leafmap: A Python package for interactive mapping and geospatial analysis with minimal coding in a Jupyter environment. <em>Journal of Open Source Software</em>, 6(63), 3414. https://doi.org/10.21105/joss.03414</p>
+<p>[4] coder_yang56. 已有cuda11.2情况下Pytorch 环境配置 [EB/OL]. (2022-04-22)[2023-06-07]. https://blog.csdn.net/qq_41330902/article/details/124355474.</p>
 
   
 
@@ -1304,11 +1485,11 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         <!-- mkdocs-git-revision-date-localized-plugin -->
         
         最后更新:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-06-06T16:14:23+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-06-06</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-06-10T22:07:37+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-06-10</span>
         
         <br />
         创建日期:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-06-06T16:14:23+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-06-06</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-06-10T22:07:37+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-06-10</span>
         
 
         <!-- mkdocs-git-revision-date-plugin -->
@@ -1396,7 +1577,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../01index/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 1 基本介绍" rel="prev">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Segment - Geospatial" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1405,20 +1586,20 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 上一页
               </span>
               <div class="md-ellipsis">
-                1 基本介绍
+                Segment - Geospatial
               </div>
             </div>
           </a>
         
         
           
-          <a href="../02sam_YU/" class="md-footer__link md-footer__link--next" aria-label="下一页: 3 samgeo + leafmap 示例" rel="next">
+          <a href="../../../gee/demo05/" class="md-footer__link md-footer__link--next" aria-label="下一页: 还没用上 ChatGPT？那快试试全网通的 New Bing 吧！" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                3 samgeo + leafmap 示例
+                还没用上 ChatGPT？那快试试全网通的 New Bing 吧！
               </div>
             </div>
             <div class="md-footer__button md-icon">
