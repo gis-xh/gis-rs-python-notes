@@ -12,20 +12,16 @@
         <meta name="author" content="gis-xh">
       
       
-        <link rel="canonical" href="https://gis-xh.github.io/gis-rs-python-notes/gee/gee01/">
+        <link rel="canonical" href="https://gis-xh.github.io/gis-rs-python-notes/open-geo-zh/sampleselect/">
       
       
-        <link rel="prev" href="../gee_tips/">
-      
-      
-        <link rel="next" href="../gee02/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>1 获取遥感影像 - GIS&RS 学习站</title>
+        <title>样本选取 - GIS&RS 学习站</title>
       
     
     
@@ -106,7 +102,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gee" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -139,7 +135,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1 获取遥感影像
+              样本选取
             
           </span>
         </div>
@@ -243,8 +239,6 @@
         
   
   
-    
-  
 
 
   
@@ -256,7 +250,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../gee_tips/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../gee/gee_tips/" class="md-tabs__link">
         Google Earth Engine
       </a>
     </li>
@@ -274,7 +268,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../open-geo-zh/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         open-geo 教程
       </a>
     </li>
@@ -290,7 +284,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../demo05/" class="md-tabs__link">
+      <a href="../../gee/demo05/" class="md-tabs__link">
         其他
       </a>
     </li>
@@ -347,16 +341,16 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
       
       
         
@@ -371,7 +365,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Google Earth Engine
@@ -382,16 +376,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_1" >
       
       
         
@@ -410,7 +404,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1">
           <span class="md-nav__icon md-icon"></span>
           GEE 教程
@@ -423,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gee_tips/" class="md-nav__link">
+      <a href="../../gee/gee_tips/" class="md-nav__link">
         GEE 小技巧
       </a>
     </li>
@@ -435,154 +429,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          1 获取遥感影像
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../gee/gee01/" class="md-nav__link">
         1 获取遥感影像
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1 前言
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2 数据准备
-  </a>
-  
-    <nav class="md-nav" aria-label="2 数据准备">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    2.1 上传中国省级行政区域的矢量数据
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-landsat-8" class="md-nav__link">
-    2.2 导入 Landsat 8 遥感影像
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3 导入数据
-  </a>
-  
-    <nav class="md-nav" aria-label="3 导入数据">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31" class="md-nav__link">
-    3.1 选取中心点
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32" class="md-nav__link">
-    3.2 导入行政区数据
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    3.3 查看导入数据的代码内容
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#34" class="md-nav__link">
-    3.4 修改变量名称
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4 代码实现
-  </a>
-  
-    <nav class="md-nav" aria-label="4 代码实现">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    4.1 代码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    4.2 运行结果
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43" class="md-nav__link">
-    4.3 完整代码
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -594,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gee02/" class="md-nav__link">
+      <a href="../../gee/gee02/" class="md-nav__link">
         2 遥感图像的基本计算
       </a>
     </li>
@@ -608,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gee03/" class="md-nav__link">
+      <a href="../../gee/gee03/" class="md-nav__link">
         3 GEE Python API
       </a>
     </li>
@@ -676,7 +527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap_tips/" class="md-nav__link">
+      <a href="../../gee/geemap_tips/" class="md-nav__link">
         Geemap 小技巧
       </a>
     </li>
@@ -690,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap01/" class="md-nav__link">
+      <a href="../../gee/geemap01/" class="md-nav__link">
         1 Geemap 包的介绍
       </a>
     </li>
@@ -704,7 +555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap02/" class="md-nav__link">
+      <a href="../../gee/geemap02/" class="md-nav__link">
         2 Landsat 时序延时动画
       </a>
     </li>
@@ -718,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap03/" class="md-nav__link">
+      <a href="../../gee/geemap03/" class="md-nav__link">
         3 无限制下载 GEE 数据
       </a>
     </li>
@@ -732,7 +583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap04/" class="md-nav__link">
+      <a href="../../gee/geemap04/" class="md-nav__link">
         4 长江流域降雨量可视化
       </a>
     </li>
@@ -746,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap05/" class="md-nav__link">
+      <a href="../../gee/geemap05/" class="md-nav__link">
         5 长江流域水量平衡可视化(未完成)
       </a>
     </li>
@@ -760,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../geemap06/" class="md-nav__link">
+      <a href="../../gee/geemap06/" class="md-nav__link">
         6 农作物分类可视化分析(未完成)
       </a>
     </li>
@@ -774,7 +625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gee081.md" class="md-nav__link">
+      <a href="../../gee/gee081.md" class="md-nav__link">
         7 未完成
       </a>
     </li>
@@ -825,7 +676,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../open-geo-zh/">open-geo 教程</a>
+          <a href="../">open-geo 教程</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -883,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open-geo-zh/sam-geo/index.md" class="md-nav__link">
+      <a href="../sam-geo/index.md" class="md-nav__link">
         None
       </a>
     </li>
@@ -897,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open-geo-zh/sam-geo/01sam_YU.md" class="md-nav__link">
+      <a href="../sam-geo/01sam_YU.md" class="md-nav__link">
         1 samgeo + leafmap 示例
       </a>
     </li>
@@ -959,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../demo05/" class="md-nav__link">
+      <a href="../../gee/demo05/" class="md-nav__link">
         还没用上 ChatGPT？那快试试全网通的 New Bing 吧！
       </a>
     </li>
@@ -993,123 +844,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1 前言
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2 数据准备
-  </a>
-  
-    <nav class="md-nav" aria-label="2 数据准备">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    2.1 上传中国省级行政区域的矢量数据
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-landsat-8" class="md-nav__link">
-    2.2 导入 Landsat 8 遥感影像
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3 导入数据
-  </a>
-  
-    <nav class="md-nav" aria-label="3 导入数据">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31" class="md-nav__link">
-    3.1 选取中心点
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32" class="md-nav__link">
-    3.2 导入行政区数据
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    3.3 查看导入数据的代码内容
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#34" class="md-nav__link">
-    3.4 修改变量名称
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4 代码实现
-  </a>
-  
-    <nav class="md-nav" aria-label="4 代码实现">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    4.1 代码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    4.2 运行结果
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43" class="md-nav__link">
-    4.3 完整代码
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1130,185 +864,9 @@
   
 
 
-<h1 id="gee">GEE 教程（一）：获取遥感影像——以湖北省为例<a class="headerlink" href="#gee" title="Permanent link">&para;</a></h1>
-<h2 id="1">1 前言<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>&emsp;&emsp;GEE，Google Earth Engine 谷歌地球引擎，“谷歌地球引擎将 PB 级别的卫星图像和地理空间数据集与行星级分析功能结合起来。科学家、研究人员和开发人员使用地球引擎来检测地球表面的变化、绘制趋势和量化差异。地球引擎现在可用于商业用途，并保持免费的学术和研究使用。”（选自官网介绍翻译）</p>
-<p><a class="glightbox" href="../img/image-20221104154530139.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20221104154530139" src="../img/image-20221104154530139.png" /></a></p>
-<p><center>图 1-1 GEE 官网界面</center></p>
-<h2 id="2">2 数据准备<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<h3 id="21">2.1 上传中国省级行政区域的矢量数据<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
-<ul>
-<li>选中左侧工具框中的 Assets 栏，点击 New 新建数据资源文件即可上传用户数据。</li>
-</ul>
-<p><a class="glightbox" href="../img/image-20221104085658856.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20221104085658856" src="../img/image-20221104085658856.png" /></a></p>
-<p><center>图 2-1 上传数据</center></p>
-<ul>
-<li>选中右侧工具框上的 Tasks 栏，查看当前任务情况。可以看到此时数据已经成功上传，并在左侧工具框中的 Asset 栏中显示出来。</li>
-</ul>
-<p><a class="glightbox" href="../img/image-20221104090555270.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20221104090555270" src="../img/image-20221104090555270.png" /></a></p>
-<p><center>图 2-2 上传成功</center></p>
-<h3 id="22-landsat-8">2.2 导入 Landsat 8 遥感影像<a class="headerlink" href="#22-landsat-8" title="Permanent link">&para;</a></h3>
-<ul>
-<li>点击上方搜索框，搜索 <code>landsat 8</code> 即可查询到相关数据</li>
-</ul>
-<p><a class="glightbox" href="../img/image-20221104092020168.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20221104092020168" src="../img/image-20221104092020168.png" /></a></p>
-<p><center>图 2-3 搜索并以导入 Landsat 8 遥感数据</center></p>
-<ul>
-<li>导入数据后，在中部的代码编辑框中会出现如下内容，此变量名（imageCollection）可以根据需求自行更改。</li>
-</ul>
-<p><a class="glightbox" href="../img/image-20221104092445867.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20221104092445867" src="../img/image-20221104092445867.png" /></a></p>
-<p><center>图 2-4 在代码编辑器中查看导入数据</center></p>
-<h2 id="3">3 导入数据<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<h3 id="31">3.1 选取中心点<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
-<ul>
-<li>因为主界面默认显示的是美国区域，我们先移动到中国范围内，并缩放到湖北省范围内。</li>
-</ul>
-<p><a class="glightbox" href="../img/image-20221104094256845.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20221104094256845" src="../img/image-20221104094256845.png" /></a></p>
-<p><center>图 3-1 在主界面查看湖北省区域</center></p>
-<ul>
-<li>在地图框中的左上角工具栏中，选中点标记开始添加标记。在添加标记点后，在代码编辑器中可以立即反馈成如图所示的代码。</li>
-</ul>
-<p><a class="glightbox" href="../img/image-20221104094619740.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20221104094619740" src="../img/image-20221104094619740.png" /></a></p>
-<p><center>图 3-2 添加点标记</center></p>
-<h3 id="32">3.2 导入行政区数据<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
-<ul>
-<li>接下来我们要导入上传好的省份数据，同之前的导入数据操作类似，导入后会在代码编辑框中立即反馈出来。</li>
-</ul>
-<p><a class="glightbox" href="../img/image-20221104104540984.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20221104104540984" src="../img/image-20221104104540984.png" /></a></p>
-<p><center>图 3-3 导入省份数据</center></p>
-<h3 id="33">3.3 查看导入数据的代码内容<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
-<ul>
-<li>在代码编辑器中点击 Import 栏的 Show generated code 按钮查看生成的代码。</li>
-</ul>
-<p><a class="glightbox" href="../img/image-20221104105026077.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20221104105026077" src="../img/image-20221104105026077.png" /></a></p>
-<p><center>图 3-4 查看生成的代码</center></p>
-<ul>
-<li>代码内容如下：</li>
-</ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">imageCollection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">ImageCollection</span><span class="p">(</span><span class="s2">&quot;LANDSAT/LC08/C02/T1&quot;</span><span class="p">),</span>
-<span class="w">    </span><span class="nx">geometry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* color: #ffc82d */</span><span class="nx">ee</span><span class="p">.</span><span class="nx">Geometry</span><span class="p">.</span><span class="nx">Point</span><span class="p">([</span><span class="mf">114.35186990208535</span><span class="p">,</span><span class="w"> </span><span class="mf">30.58233381161745</span><span class="p">]),</span>
-<span class="w">    </span><span class="nx">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">FeatureCollection</span><span class="p">(</span><span class="s2">&quot;users/evolto/province&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="34">3.4 修改变量名称<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
-<ul>
-<li>为了方便后续调用，已经代码理解，我们将导入数据的变量名修改为以下内容。</li>
-</ul>
-<p><a class="glightbox" href="../img/image-20221104111000285.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20221104111000285" src="../img/image-20221104111000285.png" /></a></p>
-<p><center>图 3-5 修改变量名称</center></p>
-<ul>
-<li>此时生成的代码为：</li>
-</ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">L8_RAW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">ImageCollection</span><span class="p">(</span><span class="s2">&quot;LANDSAT/LC08/C02/T1&quot;</span><span class="p">),</span>
-<span class="w">    </span><span class="nx">centerPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* color: #ffc82d */</span><span class="nx">ee</span><span class="p">.</span><span class="nx">Geometry</span><span class="p">.</span><span class="nx">Point</span><span class="p">([</span><span class="mf">114.35186990208535</span><span class="p">,</span><span class="w"> </span><span class="mf">30.58233381161745</span><span class="p">]),</span>
-<span class="w">    </span><span class="nx">province</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">FeatureCollection</span><span class="p">(</span><span class="s2">&quot;users/evolto/province&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="4">4 代码实现<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<h3 id="41">4.1 代码<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
-<ul>
-<li>在导入所需数据后，我们就可以通过代码进行相关操作了。</li>
-<li>这里首先我们从上传的全国省级行政区划数据中通过属性筛选出湖北省，随后筛选遥感数据的时段并结合湖北省区域进行 <code>clip()</code> 裁剪，最后将计算结果添加到图层上进行可视化显示。</li>
-</ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 利用属性筛选重湖北省的行政区边界</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">hb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">province</span><span class="p">.</span><span class="nx">filterMetadata</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;equals&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hubei&#39;</span><span class="p">).</span><span class="nx">first</span><span class="p">().</span><span class="nx">geometry</span><span class="p">();</span>
-
-<span class="c1">// 筛选遥感影像时间</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">L8_Filtered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">L8_RAW</span><span class="p">.</span><span class="nx">filterDate</span><span class="p">(</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">);</span>
-
-<span class="c1">// 裁剪图像</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">hb_No_Cloud</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Algorithms</span><span class="p">.</span><span class="nx">Landsat</span><span class="p">.</span><span class="nx">simpleComposite</span><span class="p">(</span><span class="nx">L8_Filtered</span><span class="p">).</span><span class="nx">clip</span><span class="p">(</span><span class="nx">hb</span><span class="p">);</span>
-
-<span class="c1">// 添加图层及其影像</span>
-<span class="nb">Map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">hb</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="s1">&#39;湖北省&#39;</span><span class="p">);</span>
-<span class="nb">Map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">hb_No_Cloud</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">bands</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;B5&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;B4&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;B3&#39;</span><span class="p">],</span>
-<span class="w">  </span><span class="nx">gamma</span><span class="o">:</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">max</span><span class="o">:</span><span class="w"> </span><span class="mf">108</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">min</span><span class="o">:</span><span class="w"> </span><span class="mf">15</span>
-<span class="p">},</span><span class="w"> </span><span class="s1">&#39;湖北省L8图像&#39;</span><span class="p">);</span>
-
-<span class="c1">// 将地图的显示中心定位到之前添加的中心点，缩放界别调整为 6 级</span>
-<span class="nb">Map</span><span class="p">.</span><span class="nx">centerObject</span><span class="p">(</span><span class="nx">centerPoint</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="42">4.2 运行结果<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
-<ul>
-<li>最终的运行结果如下，点击 Run 按钮，将会在地图界面添加两个图层并显示出来。</li>
-</ul>
-<p><a class="glightbox" href="../img/image-20221104153935469.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20221104153935469" src="../img/image-20221104153935469.png" /></a></p>
-<p><center>图 4-1 运算结果展示</center></p>
-<h3 id="43">4.3 完整代码<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 导入数据</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">L8_RAW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">ImageCollection</span><span class="p">(</span><span class="s2">&quot;LANDSAT/LC08/C02/T1&quot;</span><span class="p">),</span>
-<span class="w">  </span><span class="nx">centerPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* color: #ffc82d */</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Geometry</span><span class="p">.</span><span class="nx">Point</span><span class="p">([</span><span class="mf">114.35186990208535</span><span class="p">,</span><span class="w"> </span><span class="mf">30.58233381161745</span><span class="p">]),</span>
-<span class="w">  </span><span class="nx">province</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">FeatureCollection</span><span class="p">(</span><span class="s2">&quot;users/evolto/province&quot;</span><span class="p">);</span>
-
-<span class="c1">// 利用属性筛选重湖北省的行政区边界</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">hb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">province</span><span class="p">.</span><span class="nx">filterMetadata</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;equals&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hubei&#39;</span><span class="p">).</span><span class="nx">first</span><span class="p">().</span><span class="nx">geometry</span><span class="p">();</span>
-
-<span class="c1">// 筛选遥感影像时间</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">L8_Filtered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">L8_RAW</span><span class="p">.</span><span class="nx">filterDate</span><span class="p">(</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">);</span>
-
-<span class="c1">// 裁剪图像</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">hb_No_Cloud</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Algorithms</span><span class="p">.</span><span class="nx">Landsat</span><span class="p">.</span><span class="nx">simpleComposite</span><span class="p">(</span><span class="nx">L8_Filtered</span><span class="p">).</span><span class="nx">clip</span><span class="p">(</span><span class="nx">hb</span><span class="p">);</span>
-
-<span class="c1">// 添加图层及其影像</span>
-<span class="nb">Map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">hb</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="s1">&#39;湖北省&#39;</span><span class="p">);</span>
-<span class="nb">Map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">hb_No_Cloud</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">bands</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;B5&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;B4&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;B3&#39;</span><span class="p">],</span>
-<span class="w">  </span><span class="nx">gamma</span><span class="o">:</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">max</span><span class="o">:</span><span class="w"> </span><span class="mf">108</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">min</span><span class="o">:</span><span class="w"> </span><span class="mf">15</span>
-<span class="p">},</span><span class="w"> </span><span class="s1">&#39;湖北省L8图像&#39;</span><span class="p">);</span>
-
-<span class="c1">// 将地图的显示中心定位到之前添加的中心点，缩放界别调整为 6 级</span>
-<span class="nb">Map</span><span class="p">.</span><span class="nx">centerObject</span><span class="p">(</span><span class="nx">centerPoint</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
+<h1 id="_1">样本选取<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>遥感信息样本选择方法及系统</p>
+<p>https://www.patentguru.com/cn/CN114220018A</p>
 
   
 
@@ -1322,11 +880,11 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         <!-- mkdocs-git-revision-date-localized-plugin -->
         
         最后更新:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-05-20T21:40:30+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-20</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-07-07T19:39:44+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-07</span>
         
         <br />
         创建日期:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-25T09:55:57+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-25</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-07-07T19:39:44+08:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-07</span>
         
 
         <!-- mkdocs-git-revision-date-plugin -->
@@ -1409,42 +967,6 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
-        
-          
-          <a href="../gee_tips/" class="md-footer__link md-footer__link--prev" aria-label="上一页: GEE 小技巧" rel="prev">
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                GEE 小技巧
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../gee02/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2 遥感图像的基本计算" rel="next">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                2 遥感图像的基本计算
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
