@@ -8,7 +8,7 @@ site_description: GIS 与 RS 开发学习笔记
 ## [top]
 theme:
   name: material
-  custom_dir: overrides
+  custom_dir: docs/mkdocs/overrides
   palette: 
     - scheme: default # 默认日间模式
       primary: indigo # 上方的
